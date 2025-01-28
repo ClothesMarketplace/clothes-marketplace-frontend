@@ -1,1 +1,1 @@
-# clothes-marketplace-front
+# clothes-marketplace-frontend

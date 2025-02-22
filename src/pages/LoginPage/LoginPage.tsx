@@ -1,9 +1,7 @@
 type Props = {}
 
 const LoginPage = (props: Props) => {
-  return (
-    <div>LoginPage</div>
-  )
+  return <div className="container">LoginPage</div>;
 }
 
 export default LoginPage

@@ -1,9 +1,7 @@
 type Props = {}
 
 const SaleAdvertPage = (props: Props) => {
-  return (
-    <div>SaleAdvertPage</div>
-  )
+  return <div className="container">SaleAdvertPage</div>;
 }
 
 export default SaleAdvertPage

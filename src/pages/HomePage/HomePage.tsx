@@ -1,6 +1,5 @@
-type Props = {};
 
-const HomePage = (props: Props) => {
+const HomePage = () => {
   return <div className="container">HomePage</div>;
 };
 

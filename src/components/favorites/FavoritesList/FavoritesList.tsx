@@ -1,6 +1,5 @@
-type Props = {}
 
-const FavoritesList = (props: Props) => {
+const FavoritesList = () => {
   return (
     <div>FavoritesList</div>
   )

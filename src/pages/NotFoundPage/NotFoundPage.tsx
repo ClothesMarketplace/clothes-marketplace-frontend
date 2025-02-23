@@ -1,6 +1,5 @@
-type Props = {}
 
-const NotFoundPage = (props: Props) => {
+const NotFoundPage = () => {
   return <div className="container">NotFound...404</div>;
 }
 

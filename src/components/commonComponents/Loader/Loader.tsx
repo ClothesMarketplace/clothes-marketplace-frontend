@@ -1,6 +1,4 @@
-type Props = {};
-
-const Loader = (props: Props) => {
+const Loader = () => {
   return (
     <div>
       <h1>is loading...</h1>

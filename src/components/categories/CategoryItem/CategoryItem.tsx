@@ -1,6 +1,4 @@
-type Props = {}
-
-const CategoryItem = (props: Props) => {
+const CategoryItem = () => {
   return (
     <div>CategoryItem</div>
   )

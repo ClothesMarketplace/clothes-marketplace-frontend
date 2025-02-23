@@ -1,6 +1,5 @@
-type Props = {}
 
-const FavoritesPage = (props: Props) => {
+const FavoritesPage = () => {
   return <div className="container">FavoritesPage</div>;
 }
 

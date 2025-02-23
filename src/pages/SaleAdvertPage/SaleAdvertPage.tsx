@@ -1,6 +1,5 @@
-type Props = {}
 
-const SaleAdvertPage = (props: Props) => {
+const SaleAdvertPage = () => {
   return <div className="container">SaleAdvertPage</div>;
 }
 

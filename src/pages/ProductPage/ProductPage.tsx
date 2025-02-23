@@ -1,6 +1,5 @@
-type Props = {};
 
-const ProductPage = (props: Props) => {
+const ProductPage = () => {
   return <div className="container">ProductPage</div>;
 };
 

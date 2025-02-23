@@ -1,6 +1,5 @@
-type Props = {}
 
-const PaymentPage = (props: Props) => {
+const PaymentPage = () => {
   return <div className="container">PaymentPage</div>;
 }
 

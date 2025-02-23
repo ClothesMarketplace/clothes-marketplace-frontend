@@ -1,6 +1,5 @@
-type Props = {}
 
-const SearchForm = (props: Props) => {
+const SearchForm = () => {
   return (
     <div>SearchForm</div>
   )

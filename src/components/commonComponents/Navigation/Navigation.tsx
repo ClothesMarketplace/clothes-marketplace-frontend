@@ -2,9 +2,8 @@ import { NavLink } from "react-router-dom";
 import css from './Navigation.module.css'
 import sprite from '../../../images/sprite.svg'
 
-type Props = {}
 
-const Navigation = (props: Props) => {
+const Navigation = () => {
   return (
     <nav>
       <ul className={css.navList}>

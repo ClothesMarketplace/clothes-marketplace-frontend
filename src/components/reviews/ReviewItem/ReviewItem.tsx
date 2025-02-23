@@ -1,6 +1,5 @@
-type Props = {}
 
-const ReviewItem = (props: Props) => {
+const ReviewItem = () => {
   return <div>Review</div>;
 };
 

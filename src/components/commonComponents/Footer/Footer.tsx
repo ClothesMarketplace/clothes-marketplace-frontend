@@ -1,7 +1,6 @@
 import css from "./Footer.module.css";
-type Props = {};
 
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <div className={css.footer}>
       <div className={css.wrapper}>

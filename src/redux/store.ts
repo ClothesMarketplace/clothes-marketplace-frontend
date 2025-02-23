@@ -10,7 +10,8 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { authReducer } from "./auth/authSlice";
+import { authReducer } from "./auth/slice";
+import { useDispatch, useSelector } from "react-redux";
 
 const authPersistConfig = {
   key: "auth",
@@ -35,9 +36,10 @@ export const persistor = persistStore(store);
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
-// import { useDispatch, useSelector } from "react-redux";
-// import type { RootState, AppDispatch } from "./store";
-
 // Use throughout your app instead of plain `useDispatch` and `useSelector`
-// export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
-// export const useAppSelector = useSelector.withTypes<RootState>();
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
+export const useAppSelector = useSelector.withTypes<RootState>();
+
+// example
+// const dispatch = useAppDispatch();
+// dispatch(register(user));

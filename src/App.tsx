@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
@@ -11,15 +11,15 @@ const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const SaleAdvertPage = lazy(
   () => import("./pages/SaleAdvertPage/SaleAdvertPage")
 );
-const Loader = lazy(
-  () => import("./components/commonComponents/Loader/Loader")
-);
+// const Loader = lazy(
+//   () => import("./components/commonComponents/Loader/Loader")
+// );
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
   return (
     <div>
-      <Suspense fallback={<Loader />}></Suspense>
+      {/* <Suspense fallback={<Loader />}></Suspense> */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

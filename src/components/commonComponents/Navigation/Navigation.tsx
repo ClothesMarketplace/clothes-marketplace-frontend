@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
-import css from './Navigation.module.css'
-import sprite from '../../../images/sprite.svg'
-
+import css from "./Navigation.module.css";
+import sprite from "../../../images/sprite.svg";
 
 const Navigation = () => {
   return (
@@ -22,7 +21,7 @@ const Navigation = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/login">Увійти | Зареєструватися</NavLink>
+          <NavLink to="/registration">Увійти | Зареєструватися</NavLink>
         </li>
         <li>
           <NavLink to="/advert">Додати оголошення</NavLink>
@@ -30,6 +29,6 @@ const Navigation = () => {
       </ul>
     </nav>
   );
-}
+};
 
-export default Navigation
+export default Navigation;

@@ -7,10 +7,11 @@ const Layout = () => {
   return (
     <div>
       <Header />
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
-
+      <main>
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
+      </main>
       <Footer />
     </div>
   );

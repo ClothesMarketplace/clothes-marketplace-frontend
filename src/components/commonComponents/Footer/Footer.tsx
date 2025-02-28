@@ -2,7 +2,7 @@ import css from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <div className={css.footer}>
+    <footer className={css.footer}>
       <div className={css.wrapper}>
         <h2>Footer</h2>
         <ul>
@@ -13,7 +13,7 @@ const Footer = () => {
           <li>links</li>
         </ul>
       </div>
-    </div>
+    </footer>
   );
 };
 

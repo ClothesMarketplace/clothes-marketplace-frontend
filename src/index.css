@@ -3,6 +3,10 @@
   --white: #fff;
   --gray-primary: #a4a4a4;
   --gray-secondary: #d9d9d9;
+  --gray-input-c: rgba(143, 151, 163, 1);
+  --gray-input-bg: #f4f4f9;
+  --google-btn-bg: #4285f4;
+  --google-btn-hover-bg: #427cd8;
 }
 
 body {
@@ -14,6 +18,7 @@ body {
 *,
 *::before,
 *::after {
+  font-family: sans-serif;
   box-sizing: inherit;
   /* font-family: var(--Font-family); */
   font-size: 16px;
@@ -48,25 +53,25 @@ img {
 }
 
 .container {
-  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
   padding: 40px 30px;
 }
 
-@media screen and (min-width: 345px) {
+@media screen and (min-width: 390px) {
   .container {
-    width: 345px;
+    max-width: 390px;
   }
 }
 @media screen and (min-width: 768px) {
   .container {
-    width: 768px;
+    max-width: 768px;
   }
 }
 @media screen and (min-width: 1440px) {
   .container {
-    width: 1440px;
+    max-width: 1440px;
     padding: 67px 107px 54px;
   }
 }

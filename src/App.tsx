@@ -8,6 +8,9 @@ const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const FavoritesPage = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
 const ProductPage = lazy(() => import("./pages/ProductPage/ProductPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
+const RegistrationPage = lazy(
+  () => import("./pages/RegistrationPage/RegistrationPage")
+);
 const SaleAdvertPage = lazy(
   () => import("./pages/SaleAdvertPage/SaleAdvertPage")
 );
@@ -18,19 +21,17 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
   return (
-    <div>
-      {/* <Suspense fallback={<Loader />}></Suspense> */}
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/advert" element={<SaleAdvertPage />} />
-        </Route>
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/registration" element={<RegistrationPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/advert" element={<SaleAdvertPage />} />
+      </Route>
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   );
 }
 

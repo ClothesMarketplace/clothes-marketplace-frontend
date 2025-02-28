@@ -3,6 +3,9 @@ import { register } from "../../../redux/auth/operations";
 import { useAppDispatch } from "../../../redux/store";
 import css from "./RegistrationForm.module.css";
 import { Link } from "react-router-dom";
+import sprite from "../../../assets/icons/sprite.svg";
+import Button from "../../commonComponents/Button/Button";
+import ButtonGoogle from "../../commonComponents/ButtonGoogle/ButtonGoogle";
 
 export const RegistrationForm: React.FC<{}> = () => {
   const dispatch = useAppDispatch();
@@ -10,14 +13,12 @@ export const RegistrationForm: React.FC<{}> = () => {
   interface FormData {
     name: string;
     email: string;
-    phoneNumber: string;
     password: string;
   }
 
   const INITIAL_FORM_DATA: FormData = {
     name: "",
     email: "",
-    phoneNumber: "",
     password: "",
   };
 
@@ -27,16 +28,18 @@ export const RegistrationForm: React.FC<{}> = () => {
   };
 
   return (
-    <div>
-      <h1>Приєднуйтесь і продавайте улюблений одяг без комісій</h1>
+    <>
+      <h1 className={css.title}>
+        Приєднуйтесь і продавайте улюблений одяг без комісій
+      </h1>
 
       <Formik
         //   validationSchema={registerSchema}
         initialValues={INITIAL_FORM_DATA}
         onSubmit={handleSubmit}
       >
-        <Form className={css.form}>
-          <label>
+        <Form className={css.form} autoComplete="off">
+          <label className={css.label}>
             <Field
               className={css.input}
               type="text"
@@ -51,7 +54,7 @@ export const RegistrationForm: React.FC<{}> = () => {
             />
           </label>
 
-          <label>
+          <label className={css.label}>
             <Field
               className={css.input}
               type="email"
@@ -66,22 +69,7 @@ export const RegistrationForm: React.FC<{}> = () => {
             />
           </label>
 
-          <label>
-            <Field
-              className={css.input}
-              type="tel"
-              name="phoneNumber"
-              placeholder="Номер телефону"
-              autoComplete="off"
-            />
-            <ErrorMessage
-              className={css.errorMsg}
-              name="phoneNumber"
-              component="span"
-            />
-          </label>
-
-          <label>
+          <label className={css.label}>
             <Field
               className={css.input}
               type="password"
@@ -96,21 +84,15 @@ export const RegistrationForm: React.FC<{}> = () => {
             />
           </label>
 
-          <button className={css.btn} type="submit">
-            Зареєструватися
-          </button>
+          <Button text="Зареєструватися" type="submit" />
         </Form>
       </Formik>
 
-      <span>або увійти</span>
-
-      <button type="button">G</button>
-      <button type="button">F</button>
-      <button type="button">Apple</button>
+      <ButtonGoogle text="За допомогою Google" />
 
       <p>
         Вже маєте акаунт? <Link to="/login">авторизуватися</Link>
       </p>
-    </div>
+    </>
   );
 };

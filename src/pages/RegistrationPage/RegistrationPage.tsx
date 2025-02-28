@@ -2,7 +2,7 @@ import { RegistrationForm } from "../../components/auth/RegistrationForm/Registr
 
 const RegistrationPage = () => {
   return (
-    <div>
+    <div className="container">
       <RegistrationForm />
     </div>
   );

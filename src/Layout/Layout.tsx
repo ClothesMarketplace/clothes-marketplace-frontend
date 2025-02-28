@@ -5,15 +5,15 @@ import { Suspense } from "react";
 
 const Layout = () => {
   return (
-    <div>
-      <Header />
+    <>
+      {/* <Header /> */}
       <main>
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>
       </main>
-      <Footer />
-    </div>
+      {/* <Footer /> */}
+    </>
   );
 };
 

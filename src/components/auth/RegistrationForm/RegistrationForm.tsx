@@ -1,14 +1,18 @@
-import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
+import { Form, Formik, FormikHelpers } from "formik";
 import { register } from "../../../redux/auth/operations";
 import { useAppDispatch } from "../../../redux/store";
 import css from "./RegistrationForm.module.css";
-import { Link } from "react-router-dom";
-import sprite from "../../../assets/icons/sprite.svg";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../commonComponents/Button/Button";
 import ButtonGoogle from "../../commonComponents/ButtonGoogle/ButtonGoogle";
+import CloseButton from "../../commonComponents/CloseButton/CloseButton";
+import FormItem from "../FormItem/FormItem";
+import { useState } from "react";
 
 export const RegistrationForm: React.FC<{}> = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const [type, setType] = useState<"text" | "password">("password");
 
   interface FormData {
     name: string;
@@ -27,8 +31,17 @@ export const RegistrationForm: React.FC<{}> = () => {
     actions.resetForm();
   };
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
+  const togglePasswordVisibility = () => {
+    setType(type === "password" ? "text" : "password");
+  };
+
   return (
-    <>
+    <div className={css.wrapper}>
+      <CloseButton descr="Close signup form" handleClick={goBack} />
       <h1 className={css.title}>
         Приєднуйтесь і продавайте улюблений одяг без комісій
       </h1>
@@ -39,50 +52,27 @@ export const RegistrationForm: React.FC<{}> = () => {
         onSubmit={handleSubmit}
       >
         <Form className={css.form} autoComplete="off">
-          <label className={css.label}>
-            <Field
-              className={css.input}
-              type="text"
-              name="name"
-              placeholder="Ім‘я"
-              autoComplete="off"
-            />
-            <ErrorMessage
-              className={css.errorMsg}
-              name="name"
-              component="span"
-            />
-          </label>
+          <FormItem
+            type="text"
+            name="name"
+            placeholder="Ім‘я"
+            iconId="Profile"
+          />
 
-          <label className={css.label}>
-            <Field
-              className={css.input}
-              type="email"
-              name="email"
-              placeholder="Електронна пошта"
-              autoComplete="off"
-            />
-            <ErrorMessage
-              className={css.errorMsg}
-              name="email"
-              component="span"
-            />
-          </label>
+          <FormItem
+            type="email"
+            name="email"
+            placeholder="Електронна пошта"
+            iconId="mail"
+          />
 
-          <label className={css.label}>
-            <Field
-              className={css.input}
-              type="password"
-              name="password"
-              placeholder="Пароль"
-              autoComplete="off"
-            />
-            <ErrorMessage
-              className={css.errorMsg}
-              name="password"
-              component="span"
-            />
-          </label>
+          <FormItem
+            type={type}
+            name="password"
+            placeholder="Пароль"
+            iconId="lock"
+            togglePasswordVisibility={togglePasswordVisibility}
+          />
 
           <Button text="Зареєструватися" type="submit" />
         </Form>
@@ -93,6 +83,6 @@ export const RegistrationForm: React.FC<{}> = () => {
       <p>
         Вже маєте акаунт? <Link to="/login">авторизуватися</Link>
       </p>
-    </>
+    </div>
   );
 };

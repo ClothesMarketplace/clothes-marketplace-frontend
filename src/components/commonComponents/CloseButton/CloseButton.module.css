@@ -1,0 +1,22 @@
+.closeBtn {
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: -36px;
+  right: -26px;
+
+  .icon {
+    stroke: var(--black);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
+    .icon {
+      scale: 1.2;
+    }
+  }
+}

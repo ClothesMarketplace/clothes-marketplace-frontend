@@ -27,12 +27,11 @@ const FormItem: React.FC<InputProps> = ({
           placeholder={placeholder}
           autoComplete="off"
         />
+        <svg className={css.icon} width="18" height="18">
+          <use href={`${sprite}#${iconId}`}></use>
+        </svg>
         <ErrorMessage className={css.errorMsg} name={name} component="span" />
       </label>
-
-      <svg className={css.icon} width="18" height="18">
-        <use href={`${sprite}#${iconId}`}></use>
-      </svg>
 
       {name === "password" && (
         <button

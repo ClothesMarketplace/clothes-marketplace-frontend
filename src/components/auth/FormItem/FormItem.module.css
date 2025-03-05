@@ -1,5 +1,7 @@
 .wrapper {
   position: relative;
+  width: 100%;
+
   .label {
     width: 100%;
     .input {
@@ -15,13 +17,19 @@
         border: 1px solid var(--black);
         color: var(--black);
       }
+
+      &:focus + .icon {
+        fill: var(--black);
+      }
     }
-  }
-  .icon {
-    position: absolute;
-    left: 24px;
-    top: 50%;
-    translate: 0 -50%;
+
+    .icon {
+      fill: var(--gray-input-c);
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      translate: 0 -50%;
+    }
   }
 
   .eyeBtn {
@@ -38,6 +46,7 @@
     padding: 6px;
 
     .iconEye {
+      fill: var(--gray-input-c);
       transition: all 0.3s ease-in-out;
     }
 

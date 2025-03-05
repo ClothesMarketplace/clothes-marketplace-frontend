@@ -2,16 +2,13 @@ import { Form, Formik, FormikHelpers } from "formik";
 import { register } from "../../../redux/auth/operations";
 import { useAppDispatch } from "../../../redux/store";
 import css from "./RegistrationForm.module.css";
-import { Link, useNavigate } from "react-router-dom";
 import Button from "../../commonComponents/Button/Button";
-import ButtonGoogle from "../../commonComponents/ButtonGoogle/ButtonGoogle";
-import CloseButton from "../../commonComponents/CloseButton/CloseButton";
 import FormItem from "../FormItem/FormItem";
 import { useState } from "react";
+import RegistrationSection from "../RegistrationSection/RegistrationSection";
 
-export const RegistrationForm: React.FC<{}> = () => {
+export const RegistrationForm: React.FC = () => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   const [type, setType] = useState<"text" | "password">("password");
 
   interface FormData {
@@ -31,21 +28,12 @@ export const RegistrationForm: React.FC<{}> = () => {
     actions.resetForm();
   };
 
-  const goBack = () => {
-    navigate(-1);
-  };
-
   const togglePasswordVisibility = () => {
     setType(type === "password" ? "text" : "password");
   };
 
   return (
-    <div className={css.wrapper}>
-      <CloseButton descr="Close signup form" handleClick={goBack} />
-      <h1 className={css.title}>
-        Приєднуйтесь і продавайте улюблений одяг без комісій
-      </h1>
-
+    <RegistrationSection>
       <Formik
         //   validationSchema={registerSchema}
         initialValues={INITIAL_FORM_DATA}
@@ -77,12 +65,6 @@ export const RegistrationForm: React.FC<{}> = () => {
           <Button text="Зареєструватися" type="submit" />
         </Form>
       </Formik>
-
-      <ButtonGoogle text="За допомогою Google" />
-
-      <p>
-        Вже маєте акаунт? <Link to="/login">авторизуватися</Link>
-      </p>
-    </div>
+    </RegistrationSection>
   );
 };

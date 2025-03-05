@@ -1,12 +1,13 @@
 :root {
   --black: #000;
-  --white: #fff;
+  --black-hover: #292828;
+  --white: #ffffff;
+  --white-hover: #efefef;
   --gray-primary: #a4a4a4;
   --gray-secondary: #d9d9d9;
-  --gray-input-c: rgba(143, 151, 163, 1);
+  --text-secondary: #ebebf0;
+  --gray-input-c: #8f97a3;
   --gray-input-bg: #f4f4f9;
-  --google-btn-bg: #4285f4;
-  --google-btn-hover-bg: #427cd8;
 }
 
 body {
@@ -20,7 +21,7 @@ body {
 *::after {
   font-family: sans-serif;
   box-sizing: inherit;
-  /* font-family: var(--Font-family); */
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -61,10 +62,11 @@ img {
 
 @media screen and (min-width: 390px) {
   .container {
-    max-width: 390px;
+    max-width: 400px;
+    border: 1px solid red;
   }
 }
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
   }
@@ -74,4 +76,9 @@ img {
     max-width: 1440px;
     padding: 67px 107px 54px;
   }
+} */
+
+button {
+  cursor: pointer;
+  border: none;
 }

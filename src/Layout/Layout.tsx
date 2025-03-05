@@ -6,13 +6,13 @@ import { Suspense } from "react";
 const Layout = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main>
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

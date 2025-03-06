@@ -1,9 +1,12 @@
 import { RegistrationForm } from "../../components/auth/RegistrationForm/RegistrationForm";
+import RegistrationSection from "../../components/auth/RegistrationSection/RegistrationSection";
 
 const RegistrationPage = () => {
   return (
     <div className="container">
-      <RegistrationForm />
+      <RegistrationSection>
+        <RegistrationForm />
+      </RegistrationSection>
     </div>
   );
 };

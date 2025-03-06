@@ -2,10 +2,10 @@
   --black: #000;
   --black-hover: #292828;
   --white: #ffffff;
-  --white-hover: #efefef;
   --gray-primary: #a4a4a4;
   --gray-secondary: #d9d9d9;
   --text-secondary: #ebebf0;
+  --text-c: #474c52;
   --gray-input-c: #8f97a3;
   --gray-input-bg: #f4f4f9;
 }
@@ -81,4 +81,19 @@ img {
 button {
   cursor: pointer;
   border: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  outline: 0;
+  outline-offset: 0;
 }

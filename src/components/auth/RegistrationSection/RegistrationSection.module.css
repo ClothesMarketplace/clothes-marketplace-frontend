@@ -9,25 +9,6 @@
     margin-bottom: 20px;
   }
 
-  .chooseText {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    color: var(--gray-input-c);
-    font-size: 14px;
-    text-wrap: nowrap;
-    margin-bottom: 20px;
-
-    &::before,
-    &::after {
-      content: "";
-      background: var(--text-secondary);
-      width: 100%;
-      height: 1px;
-    }
-  }
-
   .text {
     font-size: 14px;
 

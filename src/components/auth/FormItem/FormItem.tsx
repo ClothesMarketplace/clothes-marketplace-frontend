@@ -1,13 +1,14 @@
 import { ErrorMessage, Field } from "formik";
 import sprite from "../../../assets/icons/sprite.svg";
 import css from "./FormItem.module.css";
+import { useState } from "react";
 
 interface InputProps {
-  type: "text" | "email" | "password";
+  type?: "text" | "email" | "password";
   name: string;
   placeholder: string;
   iconId: string;
-  togglePasswordVisibility?: () => void;
+  autocomplete?: string;
 }
 
 const FormItem: React.FC<InputProps> = ({
@@ -15,17 +16,25 @@ const FormItem: React.FC<InputProps> = ({
   name,
   placeholder,
   iconId,
-  togglePasswordVisibility,
+  autocomplete = "off",
 }: InputProps) => {
+  const [passwordType, setPasswordType] = useState<"text" | "password">(
+    "password"
+  );
+
+  const togglePasswordVisibility = () => {
+    setPasswordType(passwordType === "password" ? "text" : "password");
+  };
+
   return (
     <div className={css.wrapper}>
       <label className={css.label}>
         <Field
           className={css.input}
-          type={type}
+          type={name !== "password" ? type : passwordType}
           name={name}
           placeholder={placeholder}
-          autoComplete="off"
+          autoComplete={autocomplete}
         />
         <svg className={css.icon} width="18" height="18">
           <use href={`${sprite}#${iconId}`}></use>

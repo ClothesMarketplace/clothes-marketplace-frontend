@@ -21,7 +21,6 @@ const RegistrationSection: React.FC<{ children: React.ReactNode }> = ({
 
       {children}
 
-      <span className={css.chooseText}>або увійти</span>
       <ButtonGoogle />
       <p className={css.text}>
         Вже маєте акаунт?{" "}

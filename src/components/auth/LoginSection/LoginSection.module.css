@@ -1,0 +1,29 @@
+.section {
+  position: relative;
+
+  .title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .descr {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+  }
+  .link {
+    display: block;
+    width: max-content;
+    margin-left: auto;
+    margin-bottom: 20px;
+    color: var(--text-c);
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 320px) {
+    .descr {
+      font-size: 12px;
+    }
+  }
+}

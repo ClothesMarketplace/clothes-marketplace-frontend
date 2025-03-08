@@ -1,7 +1,7 @@
 .footer {
   padding: 18px 0;
   background-color: var(--gray-primary);
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   width: 100%;
 }

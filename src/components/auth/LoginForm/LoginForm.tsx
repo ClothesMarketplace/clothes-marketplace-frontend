@@ -62,10 +62,12 @@ const LoginForm: React.FC<{}> = () => {
             checked={isRemembered}
             onChange={handleChange}
           />
-          Запам'ятати мене для авто.входу.
-          <svg className={css.icon} width="12" height="8">
-            <use href={`${sprite}#check`}></use>
-          </svg>
+          <div className={css.iconWrapper}>
+            <svg className={css.icon} width="12" height="8">
+              <use href={`${sprite}#check`}></use>
+            </svg>
+          </div>
+          <p className={css.labelText}>Запам'ятати мене для авто.входу.</p>
         </label>
 
         <Button text="Увійти" type="submit" />

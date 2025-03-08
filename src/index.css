@@ -1,13 +1,14 @@
 :root {
   --black: #000;
-  --black-hover: #292828;
+  --black-bg: #292828;
   --white: #ffffff;
-  --gray-primary: #a4a4a4;
-  --gray-secondary: #d9d9d9;
-  --text-secondary: #ebebf0;
-  --text-c: #474c52;
-  --gray-input-c: #8f97a3;
-  --gray-input-bg: #f4f4f9;
+  --gray-primary: rgb(164, 164, 164);
+  --gray-secondary: rgb(217, 217, 217);
+  --text-primary: rgb(143, 143, 143);
+  --text-secondary: rgb(235, 235, 240);
+  --text-c: rgb(71, 76, 82);
+  --gray-input-c: rgb(143, 151, 163);
+  --gray-input-bg: rgb(244, 244, 249);
 }
 
 body {
@@ -58,12 +59,17 @@ img {
   margin: 0 auto;
   box-sizing: border-box;
   padding: 40px 30px;
+  background-color: var(--white);
+}
+
+.authContainer {
+  border-radius: 12px;
+  border: 1px solid var(--black);
 }
 
 @media screen and (min-width: 390px) {
   .container {
     max-width: 400px;
-    border: 1px solid red;
   }
 }
 /* @media screen and (min-width: 768px) {

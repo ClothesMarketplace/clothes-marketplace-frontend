@@ -1,15 +1,17 @@
 import css from "./CloseButton.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
+import { useNavigate } from "react-router-dom";
 
 interface ButtonProps {
-  handleClick: () => void;
   descr: string;
 }
 
-const CloseButton: React.FC<ButtonProps> = ({
-  descr,
-  handleClick,
-}: ButtonProps) => {
+const CloseButton: React.FC<ButtonProps> = ({ descr }: ButtonProps) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/");
+  };
+
   return (
     <button
       className={css.closeBtn}

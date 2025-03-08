@@ -17,7 +17,7 @@
     background: linear-gradient(
       90deg,
       var(--black),
-      var(--black-hover),
+      var(--black-bg),
       var(--black)
     );
   }

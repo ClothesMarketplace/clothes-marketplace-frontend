@@ -1,9 +1,10 @@
-import LoginForm from "../../components/auth/LoginForm/LoginForm";
+import clsx from "clsx";
+import LoginSection from "../../components/auth/LoginSection/LoginSection";
 
 const LoginPage = () => {
   return (
-    <div className="container">
-      <LoginForm />;
+    <div className={clsx("container", "authContainer")}>
+      <LoginSection />
     </div>
   );
 };

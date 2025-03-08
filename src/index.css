@@ -1,12 +1,14 @@
 :root {
   --black: #000;
-  --white: #fff;
-  --gray-primary: #a4a4a4;
-  --gray-secondary: #d9d9d9;
-  --gray-input-c: rgba(143, 151, 163, 1);
-  --gray-input-bg: #f4f4f9;
-  --google-btn-bg: #4285f4;
-  --google-btn-hover-bg: #427cd8;
+  --black-bg: #292828;
+  --white: #ffffff;
+  --gray-primary: rgb(164, 164, 164);
+  --gray-secondary: rgb(217, 217, 217);
+  --text-primary: rgb(143, 143, 143);
+  --text-secondary: rgb(235, 235, 240);
+  --text-c: rgb(71, 76, 82);
+  --gray-input-c: rgb(143, 151, 163);
+  --gray-input-bg: rgb(244, 244, 249);
 }
 
 body {
@@ -20,7 +22,7 @@ body {
 *::after {
   font-family: sans-serif;
   box-sizing: inherit;
-  /* font-family: var(--Font-family); */
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -57,14 +59,20 @@ img {
   margin: 0 auto;
   box-sizing: border-box;
   padding: 40px 30px;
+  background-color: var(--white);
+}
+
+.authContainer {
+  border-radius: 12px;
+  border: 1px solid var(--black);
 }
 
 @media screen and (min-width: 390px) {
   .container {
-    max-width: 390px;
+    max-width: 400px;
   }
 }
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
   }
@@ -74,4 +82,24 @@ img {
     max-width: 1440px;
     padding: 67px 107px 54px;
   }
+} */
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  outline: 0;
+  outline-offset: 0;
 }

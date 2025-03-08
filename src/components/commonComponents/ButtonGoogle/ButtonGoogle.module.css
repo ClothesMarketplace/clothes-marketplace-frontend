@@ -1,8 +1,4 @@
-.googleContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
+.wrapper {
   margin-bottom: 20px;
 
   .chooseText {
@@ -13,56 +9,39 @@
     color: var(--gray-input-c);
     font-size: 14px;
     text-wrap: nowrap;
+    margin-bottom: 20px;
 
     &::before,
     &::after {
       content: "";
-      background: var(--gray-input-c);
+      background: var(--text-secondary);
       width: 100%;
       height: 1px;
     }
   }
 
   .googleLink {
-    position: relative;
+    width: 100%;
+    border: 1px solid var(--text-secondary);
+    padding: 12px;
+
     display: flex;
     align-items: center;
-    padding-left: 48px;
-    width: 100%;
-    max-width: 344px;
-    overflow: hidden;
+    justify-content: center;
+    max-width: 340px;
     border-radius: 50px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
-    cursor: pointer;
+
+    .icon {
+      transition: all 0.3s ease-in-out;
+    }
 
     &:hover,
     &:focus {
-      .text {
-        background-color: var(--google-btn-hover-bg);
+      border-color: var(--gray-secondary);
+
+      .icon {
+        scale: 1.2;
       }
-    }
-
-    .text {
-      padding: 4px 0;
-      width: 100%;
-      text-align: center;
-      font-size: 16px;
-      background-color: var(--google-btn-bg);
-      color: var(--white);
-    }
-
-    .googleIcon {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      background-color: var(--white);
-      border-top-left-radius: 50px;
-      border-bottom-left-radius: 50px;
     }
   }
 }

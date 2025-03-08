@@ -3,7 +3,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { LoginUser, User } from "./types";
 
-axios.defaults.baseURL = "https://connections-api.goit.global";
+axios.defaults.baseURL = "https://clothes-marketplace-backend.onrender.com/api";
+// axios.defaults.headers.common["x-api-version"] = "2.0";
 
 const setAuthHeader = (token: string) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -14,10 +15,10 @@ const clearAuthHeader = () => {
 };
 
 export const register = createAsyncThunk(
-  "auth/register",
+  "auth/registration",
   async (credentials: User, thunkAPI) => {
     try {
-      const res = await axios.post("users/signup", credentials);
+      const res = await axios.post("Auth/Registration", credentials);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error: any) {
@@ -40,7 +41,7 @@ export const logIn = createAsyncThunk(
   "auth/login",
   async (credentials: LoginUser, thunkAPI) => {
     try {
-      const res = await axios.post("users/login", credentials);
+      const res = await axios.post("Auth/Login", credentials);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error: any) {
@@ -59,6 +60,7 @@ export const logIn = createAsyncThunk(
   }
 );
 
+// TODO: Implement the logOut and refreshUser operations
 export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
     await axios.post("users/logout");
@@ -76,6 +78,7 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   }
 });
 
+//TODO: Implement the refreshUser operation
 export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {

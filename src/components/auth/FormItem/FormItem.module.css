@@ -1,0 +1,59 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+
+  .label {
+    width: 100%;
+    .input {
+      width: 100%;
+      padding: 16px 16px 16px 52px;
+      border: none;
+      border-radius: 50px;
+      font-size: 14px;
+      background-color: var(--gray-input-bg);
+
+      &:focus {
+        outline: none;
+        border: 1px solid var(--black);
+        color: var(--black);
+      }
+
+      &:focus + .icon {
+        fill: var(--black);
+      }
+    }
+
+    .icon {
+      fill: var(--gray-input-c);
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      translate: 0 -50%;
+    }
+  }
+
+  .eyeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    translate: 0 -50%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+
+    .iconEye {
+      fill: var(--gray-input-c);
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      .iconEye {
+        scale: 1.2;
+      }
+    }
+  }
+}

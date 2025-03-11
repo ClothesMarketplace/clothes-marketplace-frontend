@@ -4,7 +4,6 @@ import { RootState } from "../store";
 import { LoginUser, User } from "./types";
 
 axios.defaults.baseURL = "https://clothes-marketplace-backend.onrender.com/api";
-// axios.defaults.headers.common["x-api-version"] = "2.0";
 
 const setAuthHeader = (token: string) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;

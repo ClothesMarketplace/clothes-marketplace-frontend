@@ -90,8 +90,8 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.get("users/current");
-      return res.data;
+      // const res = await axios.get("users/current");
+      // return res.data;
     } catch (error: any) {
       if (axios.isAxiosError(error)) {
         const errorMessage =

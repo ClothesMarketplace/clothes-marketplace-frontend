@@ -1,7 +1,13 @@
 :root {
-  --black: #000;
-  --black-bg: #292828;
-  --white: #ffffff;
+  --black: rgb(0, 0, 0);
+  --black-bg: rgb(41, 40, 40);
+  --midnight-blue: rgb(4, 1, 54);
+  --dark-royalty: rgb(3, 8, 112);
+  --deep-sea-exploration: rgb(34, 1, 178);
+  --duranta-yellow: rgb(216, 231, 51);
+  --orange: rgb(254, 189, 1);
+  --rose: rgb(254, 68, 69);
+  --white: rgb(255, 255, 255);
   --gray-primary: rgb(164, 164, 164);
   --gray-secondary: rgb(217, 217, 217);
   --text-primary: rgb(143, 143, 143);
@@ -9,9 +15,16 @@
   --text-c: rgb(71, 76, 82);
   --gray-input-c: rgb(143, 151, 163);
   --gray-input-bg: rgb(244, 244, 249);
+  --white-dirty: rgb(235, 235, 237);
+  --white-secondary: rgb(243, 244, 246);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  font-family: "Manrope";
   margin: 0;
   min-height: 100vh;
   position: relative;
@@ -20,9 +33,7 @@ body {
 *,
 *::before,
 *::after {
-  font-family: sans-serif;
   box-sizing: inherit;
-  font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -40,7 +51,6 @@ p {
 a {
   text-decoration: none;
   cursor: pointer;
-  /* color: var(--Main); */
 }
 
 ul {

@@ -4,6 +4,7 @@ import { useAppDispatch } from "../../../redux/store";
 import css from "./RegistrationForm.module.css";
 import Button from "../../commonComponents/Button/Button";
 import FormItem from "../FormItem/FormItem";
+import { registerSchema } from "../../../utils/yup/authSchema";
 
 export const RegistrationForm: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -27,11 +28,11 @@ export const RegistrationForm: React.FC = () => {
 
   return (
     <Formik
-      //   validationSchema={registerSchema}
+      validationSchema={registerSchema}
       initialValues={INITIAL_FORM_DATA}
       onSubmit={handleSubmit}
     >
-      <Form className={css.form} autoComplete="off">
+      <Form className={css.form} autoComplete="off" noValidate>
         <FormItem type="text" name="name" placeholder="Ім‘я" iconId="Profile" />
 
         <FormItem

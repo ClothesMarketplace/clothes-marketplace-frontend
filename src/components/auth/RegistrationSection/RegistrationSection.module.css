@@ -2,7 +2,7 @@
   position: relative;
 
   .title {
-    font-weight: 500;
+    font-weight: 700;
     text-align: center;
     text-wrap: balance;
     font-size: 24px;
@@ -16,6 +16,11 @@
       color: inherit;
       text-decoration: underline;
       font-size: inherit;
+
+      &:hover,
+      &:focus {
+        color: var(--deep-sea-exploration);
+      }
     }
   }
 }

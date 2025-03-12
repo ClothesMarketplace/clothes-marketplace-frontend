@@ -13,16 +13,21 @@ export const RegistrationForm: React.FC = () => {
     name: string;
     email: string;
     password: string;
+    confirmPassword: string;
   }
 
   const INITIAL_FORM_DATA: FormData = {
     name: "",
     email: "",
     password: "",
+    confirmPassword: "",
   };
 
   const handleSubmit = (data: FormData, actions: FormikHelpers<FormData>) => {
-    dispatch(register(data));
+    if (data.confirmPassword === data.password) {
+      dispatch(register(data));
+    }
+    console.log("passwords do not match");
     actions.resetForm();
   };
 
@@ -43,6 +48,11 @@ export const RegistrationForm: React.FC = () => {
         />
 
         <FormItem name="password" placeholder="Пароль" iconId="lock" />
+        <FormItem
+          name="confirmPassword"
+          placeholder="Підтвердіть пароль"
+          iconId="lock"
+        />
 
         <Button text="Зареєструватися" type="submit" />
       </Form>

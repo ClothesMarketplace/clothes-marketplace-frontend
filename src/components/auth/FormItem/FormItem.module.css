@@ -14,12 +14,12 @@
 
       &:focus {
         outline: none;
-        border: 1px solid var(--black);
-        color: var(--black);
+        border: 1px solid var(--deep-sea-exploration);
+        color: var(--main-black);
       }
 
       &:focus + .icon {
-        fill: var(--black);
+        fill: var(--main-black);
       }
     }
 
@@ -29,6 +29,28 @@
       left: 24px;
       top: 50%;
       translate: 0 -50%;
+    }
+
+    .errorMsg {
+      position: absolute;
+      left: 28px;
+      bottom: 0;
+      translate: 0 100%;
+      font-size: 12px;
+      color: var(--error-c);
+
+      & + .input {
+        border: 1px solid var(--error-c);
+        color: var(--error-c);
+
+        &::placeholder {
+          color: var(--error-c);
+        }
+
+        & + .icon {
+          fill: var(--error-c);
+        }
+      }
     }
   }
 

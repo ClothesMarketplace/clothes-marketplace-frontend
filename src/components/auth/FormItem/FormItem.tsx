@@ -29,9 +29,14 @@ const FormItem: React.FC<InputProps> = ({
   return (
     <div className={css.wrapper}>
       <label className={css.label}>
+        <ErrorMessage className={css.errorMsg} name={name} component="span" />
         <Field
           className={css.input}
-          type={name !== "password" ? type : passwordType}
+          type={
+            name === "password" || name === "confirmPassword"
+              ? passwordType
+              : type
+          }
           name={name}
           placeholder={placeholder}
           autoComplete={autocomplete}
@@ -39,10 +44,9 @@ const FormItem: React.FC<InputProps> = ({
         <svg className={css.icon} width="18" height="18">
           <use href={`${sprite}#${iconId}`}></use>
         </svg>
-        <ErrorMessage className={css.errorMsg} name={name} component="span" />
       </label>
 
-      {name === "password" && (
+      {(name === "password" || name === "confirmPassword") && (
         <button
           className={css.eyeBtn}
           onClick={togglePasswordVisibility}

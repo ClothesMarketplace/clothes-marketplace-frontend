@@ -30,6 +30,7 @@
     justify-content: center;
     max-width: 340px;
     border-radius: 50px;
+    transition: all 0.3s ease-in-out;
 
     .icon {
       transition: all 0.3s ease-in-out;
@@ -37,7 +38,7 @@
 
     &:hover,
     &:focus {
-      border-color: var(--gray-secondary);
+      border-color: var(--deep-sea-exploration);
 
       .icon {
         scale: 1.2;

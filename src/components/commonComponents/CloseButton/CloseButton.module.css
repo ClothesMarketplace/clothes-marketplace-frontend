@@ -10,7 +10,7 @@
   right: -26px;
 
   .icon {
-    stroke: var(--black);
+    stroke: var(--gray-primary);
     transition: all 0.3s ease-in-out;
   }
 

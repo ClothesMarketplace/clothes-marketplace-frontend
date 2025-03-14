@@ -20,7 +20,7 @@
       height: 24px;
       flex-shrink: 0;
       border-radius: 8px;
-      border: 1px solid var(--black);
+      background-color: var(--white-secondary);
       align-content: center;
       transition: all 0.3s ease-in-out;
 
@@ -34,15 +34,14 @@
 
     .checkbox {
       &:checked + .iconWrapper {
-        background-color: var(--black);
+        background-color: var(--deep-sea-exploration);
         .icon {
-          fill: var(--white);
+          fill: var(--white-secondary);
         }
       }
     }
 
     .labelText {
-      color: var(--text-c);
       font-size: 14px;
       overflow: hidden;
     }

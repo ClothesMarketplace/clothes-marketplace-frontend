@@ -10,7 +10,7 @@
       border: none;
       border-radius: 50px;
       font-size: 14px;
-      background-color: var(--gray-input-bg);
+      background-color: var(--white-secondary);
 
       &:focus {
         outline: none;
@@ -24,7 +24,7 @@
     }
 
     .icon {
-      fill: var(--gray-input-c);
+      fill: var(--gray-primary);
       position: absolute;
       left: 24px;
       top: 50%;
@@ -68,7 +68,7 @@
     padding: 6px;
 
     .iconEye {
-      fill: var(--gray-input-c);
+      fill: var(--gray-primary);
       transition: all 0.3s ease-in-out;
     }
 

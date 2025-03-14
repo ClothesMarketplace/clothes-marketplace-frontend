@@ -11,7 +11,7 @@ const LoginSection = () => {
       <h1 className={css.title}>З поверненням :)</h1>
       <p className={css.descr}>Увійдіть до свого облікового запису</p>
       <LoginForm />
-      <Link className={css.link} to="/">
+      <Link className={css.linkForgotPassword} to="/">
         Забули пароль?
       </Link>
       <ButtonGoogle />

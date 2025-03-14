@@ -15,6 +15,7 @@ body {
   box-sizing: inherit;
   font-size: 16px;
   line-height: 1.5;
+  color: var(--main-black);
 }
 
 h1,
@@ -62,7 +63,7 @@ button {
 
 .authContainer {
   border-radius: 12px;
-  border: 1px solid var(--black);
+  border: 1px solid var(--main-black);
 }
 
 @media screen and (min-width: 390px) {

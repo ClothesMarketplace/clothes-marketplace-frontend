@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
 import css from "./Navigation.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
+import { useAppSelector } from "../../../redux/store";
+import { selectIsLoggedIn } from "../../../redux/auth/selectors";
 
 const Navigation = () => {
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
+
   return (
     <nav>
       <ul className={css.navList}>
@@ -20,12 +24,16 @@ const Navigation = () => {
             </svg>
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/login">Увійти</NavLink>
-        </li>
-        <li>
-          <NavLink to="/registration">Зареєструватися</NavLink>
-        </li>
+        {!isLoggedIn && (
+          <li>
+            <NavLink to="/login">Увійти</NavLink>
+          </li>
+        )}
+        {!isLoggedIn && (
+          <li>
+            <NavLink to="/registration">Зареєструватися</NavLink>
+          </li>
+        )}
         <li>
           <NavLink to="/advert">Додати оголошення</NavLink>
         </li>

@@ -4,7 +4,6 @@ import { RootState } from "../store";
 import { LoginUser, User } from "./types";
 
 axios.defaults.baseURL = "https://clothes-marketplace-backend.onrender.com/api";
-// axios.defaults.headers.common["x-api-version"] = "2.0";
 
 const setAuthHeader = (token: string) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -91,8 +90,8 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.get("users/current");
-      return res.data;
+      // const res = await axios.get("users/current");
+      // return res.data;
     } catch (error: any) {
       if (axios.isAxiosError(error)) {
         const errorMessage =

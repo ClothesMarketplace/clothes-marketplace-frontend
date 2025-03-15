@@ -51,6 +51,7 @@ input::placeholder {
 
 button {
   font-family: inherit;
+  padding: 0;
 }
 
 .container {

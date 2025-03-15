@@ -40,7 +40,7 @@ export const logIn = createAsyncThunk(
   "auth/login",
   async (credentials: LoginUser, thunkAPI) => {
     try {
-      const res = await axios.post("Auth/Login", credentials);
+      const res = await axios.post("Auth/Loginn", credentials);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error: any) {

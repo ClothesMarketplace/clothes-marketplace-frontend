@@ -41,7 +41,14 @@ function App() {
             }
           />
           <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/advert" element={<SaleAdvertPage />} />
+          <Route
+            path="/advert"
+            element={
+              <PrivateRoute redirectTo="/registration">
+                <SaleAdvertPage />
+              </PrivateRoute>
+            }
+          />
         </Route>
         <Route
           path="/registration"

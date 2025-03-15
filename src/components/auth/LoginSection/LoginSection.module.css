@@ -15,13 +15,13 @@
   .errorMessage {
     color: var(--error-c);
   }
-  .linkForgotPassword {
+  .forgotPasswordBtn {
     display: block;
     width: max-content;
     margin-left: auto;
     margin-bottom: 20px;
-    color: var(--main-black);
     text-decoration: underline;
+    background-color: transparent;
 
     &:hover {
       color: var(--deep-sea-exploration);

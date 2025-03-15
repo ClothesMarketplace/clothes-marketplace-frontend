@@ -1,7 +1,6 @@
 export interface User {
   name: string;
   email: string;
-  password: string;
 }
 export interface LoginUser {
   email: string;
@@ -13,4 +12,6 @@ export interface AuthState {
   token: string;
   isLoggedIn: boolean;
   isRefreshing: boolean;
+  isLoading: boolean;
+  error: unknown;
 }

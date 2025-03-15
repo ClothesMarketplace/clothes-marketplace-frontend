@@ -7,6 +7,7 @@ import Button from "../../commonComponents/Button/Button";
 import sprite from "../../../assets/icons/sprite.svg";
 import { useState } from "react";
 import clsx from "clsx";
+import { loginSchema } from "../../../utils/yup/authSchema";
 
 const LoginForm: React.FC<{}> = () => {
   const dispatch = useAppDispatch();
@@ -33,7 +34,7 @@ const LoginForm: React.FC<{}> = () => {
 
   return (
     <Formik
-      //   validationSchema={loginSchema}
+      validationSchema={loginSchema}
       initialValues={INITIAL_FORM_DATA}
       onSubmit={handleSubmit}
     >

@@ -27,7 +27,6 @@ export const RegistrationForm: React.FC = () => {
     if (data.confirmPassword === data.password) {
       dispatch(register(data));
     }
-    console.log("passwords do not match");
     actions.resetForm();
   };
 

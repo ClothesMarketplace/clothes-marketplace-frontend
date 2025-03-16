@@ -44,11 +44,11 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error: any) {
+      console.log(error.response);
+
       if (axios.isAxiosError(error)) {
         const errorMessage =
-          error.response?.data?.message ||
-          error.message ||
-          "Registration failed";
+          error.response?.data?.error || "Authorization failed";
         return thunkAPI.rejectWithValue(errorMessage);
       } else {
         return thunkAPI.rejectWithValue(

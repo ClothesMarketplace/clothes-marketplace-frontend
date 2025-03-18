@@ -5,9 +5,11 @@ import css from "./RegistrationForm.module.css";
 import Button from "../../commonComponents/Button/Button";
 import FormItem from "../FormItem/FormItem";
 import { registerSchema } from "../../../utils/yup/authSchema";
+import { useTranslation } from "react-i18next";
 
 export const RegistrationForm: React.FC = () => {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   interface FormData {
     name: string;
@@ -37,23 +39,32 @@ export const RegistrationForm: React.FC = () => {
       onSubmit={handleSubmit}
     >
       <Form className={css.form} autoComplete="off" noValidate>
-        <FormItem type="text" name="name" placeholder="Ім‘я" iconId="Profile" />
+        <FormItem
+          type="text"
+          name="name"
+          placeholder={t("registration.form.name")}
+          iconId="Profile"
+        />
 
         <FormItem
           type="email"
           name="email"
-          placeholder="Електронна пошта"
+          placeholder={t("registration.form.email")}
           iconId="mail"
         />
 
-        <FormItem name="password" placeholder="Пароль" iconId="lock" />
+        <FormItem
+          name="password"
+          placeholder={t("registration.form.password")}
+          iconId="lock"
+        />
         <FormItem
           name="confirmPassword"
-          placeholder="Підтвердіть пароль"
+          placeholder={t("registration.form.confirmPassword")}
           iconId="lock"
         />
 
-        <Button text="Зареєструватися" type="submit" />
+        <Button text={t("registration.form.signUp")} type="submit" />
       </Form>
     </Formik>
   );

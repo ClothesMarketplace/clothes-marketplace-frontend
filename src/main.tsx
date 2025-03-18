@@ -8,6 +8,7 @@ import App from "./App.tsx";
 import "./css/fonts.css";
 import "./css/variables.css";
 import "./index.css";
+import "./utils/i18n/index.ts"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

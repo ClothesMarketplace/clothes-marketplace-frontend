@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  gap: 8px;
+
+  .btn {
+    border: none;
+    background-color: grey;
+    padding: 4px;
+    border-radius: 4px;
+  }
+
+  .active {
+    background-color: blue;
+  }
+}

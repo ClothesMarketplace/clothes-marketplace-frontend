@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, Reducer } from "@reduxjs/toolkit";
 import {
   persistStore,
   persistReducer,
@@ -12,6 +12,10 @@ import {
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/slice";
 import { useDispatch, useSelector } from "react-redux";
+import { categoriesReducer } from "./categories/slice";
+import { productsReducer } from "./products/slice";
+
+import { PersistedAuthState } from "./auth/types";
 
 const authPersistConfig = {
   key: "auth",
@@ -19,9 +23,16 @@ const authPersistConfig = {
   whitelist: ["token"],
 };
 
+const persistedAuthReducer: Reducer<PersistedAuthState> = persistReducer(
+  authPersistConfig,
+  authReducer
+);
+
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
+    auth: persistedAuthReducer,
+    categories: categoriesReducer,
+    products: productsReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -43,3 +54,4 @@ export const useAppSelector = useSelector.withTypes<RootState>();
 // example
 // const dispatch = useAppDispatch();
 // dispatch(register(user));
+

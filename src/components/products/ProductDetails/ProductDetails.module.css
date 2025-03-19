@@ -1,6 +1,7 @@
-.item {
-    max-width: 194px;
-  
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .img {

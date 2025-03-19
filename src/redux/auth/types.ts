@@ -1,3 +1,5 @@
+import { PersistPartial } from "redux-persist/es/persistReducer";
+
 export interface User {
   name: string;
   email: string;
@@ -15,3 +17,5 @@ export interface AuthState {
   isLoading: boolean;
   error: unknown;
 }
+
+export type PersistedAuthState = AuthState & PersistPartial;

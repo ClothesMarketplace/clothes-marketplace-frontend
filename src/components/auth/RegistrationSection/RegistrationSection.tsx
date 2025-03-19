@@ -2,24 +2,25 @@ import { Link } from "react-router-dom";
 import ButtonGoogle from "../../commonComponents/ButtonGoogle/ButtonGoogle";
 import CloseButton from "../../commonComponents/CloseButton/CloseButton";
 import css from "./RegistrationSection.module.css";
+import { useTranslation } from "react-i18next";
 
 const RegistrationSection: React.FC<{ children: React.ReactNode }> = ({
   children,
 }): React.ReactNode => {
+  const { t } = useTranslation();
+
   return (
     <section className={css.section}>
       <CloseButton descr="Close signup form" />
-      <h1 className={css.title}>
-        Приєднуйтесь і продавайте улюблений одяг без комісій
-      </h1>
+      <h1 className={css.title}>{t("registration.title")}</h1>
 
       {children}
 
       <ButtonGoogle />
       <p className={css.text}>
-        Вже маєте акаунт?{" "}
+        {t("registration.alreadyHaveAccount")}{" "}
         <Link className={css.linkToLogin} to="/login">
-          авторизуватися
+          {t("registration.logIn")}
         </Link>
       </p>
     </section>

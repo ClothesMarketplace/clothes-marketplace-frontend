@@ -2,6 +2,7 @@ import { ErrorMessage, Field } from "formik";
 import sprite from "../../../assets/icons/sprite.svg";
 import css from "./FormItem.module.css";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface InputProps {
   type?: "text" | "email" | "password";
@@ -25,6 +26,8 @@ const FormItem: React.FC<InputProps> = ({
   const togglePasswordVisibility = () => {
     setPasswordType(passwordType === "password" ? "text" : "password");
   };
+
+  const { t } = useTranslation();
 
   return (
     <div className={css.wrapper}>
@@ -52,6 +55,11 @@ const FormItem: React.FC<InputProps> = ({
           onClick={togglePasswordVisibility}
           aria-label="Toggle password visibility"
           type="button"
+          title={
+            passwordType === "password"
+              ? t("registration.showPassword")
+              : t("registration.hidePassword")
+          }
         >
           <svg className={css.iconEye} width="18" height="18">
             <use href={`${sprite}#eye`}></use>

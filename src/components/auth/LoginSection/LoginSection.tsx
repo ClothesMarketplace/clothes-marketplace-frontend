@@ -7,11 +7,13 @@ import { selectError } from "../../../redux/auth/selectors";
 import { useEffect, useState } from "react";
 import { resetError } from "../../../redux/auth/slice";
 import ForgotPassword from "../ForgotPassword/ForgotPassword";
+import { useTranslation } from "react-i18next";
 
 const LoginSection: React.FC = () => {
   const error = useAppSelector(selectError);
   const dispatch = useAppDispatch();
   const [forgotPassword, setForgotPassword] = useState<boolean>(false);
+  const { t } = useTranslation();
 
   const toggleForgotPassword = (): void => {
     setForgotPassword(!forgotPassword);
@@ -32,18 +34,16 @@ const LoginSection: React.FC = () => {
     <ForgotPassword toggleForgotPassword={toggleForgotPassword} />
   ) : (
     <section className={css.section}>
-      <CloseButton descr="Close signup form" />
-      <h1 className={css.title}>З поверненням :)</h1>
-      <p className={css.descr}>Увійдіть до свого облікового запису</p>
+      <CloseButton descr="Close sign in form" />
+      <h1 className={css.title}>{t("login.title")}</h1>
+      <p className={css.descr}>{t("login.subTitle")}</p>
       {(error === "Something went wrong" ||
         error === "User with this email was not found") && (
-        <p className={css.errorMessage}>
-          Ви ввели неправильну пошту або пароль
-        </p>
+        <p className={css.errorMessage}>{t("login.wrongCredentials")}</p>
       )}
       <LoginForm />
       <button className={css.forgotPasswordBtn} onClick={toggleForgotPassword}>
-        Забули пароль?
+        {t("login.forgotPassword")}
       </button>
       <ButtonGoogle />
     </section>

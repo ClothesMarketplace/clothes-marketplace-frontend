@@ -1,0 +1,40 @@
+{
+  "registration": {
+    "title": "Join and sell your favorite clothes without commissions",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "signUp": "Sign up"
+    },
+    "orSignInText": "or sign in",
+    "alreadyHaveAccount": "Already have an account?",
+    "logIn": "sign in",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
+  },
+  "login": {
+    "title": "Welcome back :)",
+    "subTitle": "Log in to your account",
+    "rememberMe": "Remember me for auto login.",
+    "signIn": "Sign in",
+    "forgotPassword": "Forgot password?",
+    "wrongCredentials": " You entered an incorrect email or password."
+  },
+  "authSchema": {
+    "required": "The field is required",
+    "nameIsTooShort": "Name is too short",
+    "nameIsTooLong": "Name is too long",
+    "emailMustBeValid": "Email must be valid",
+    "passwordMatch": "Enter 8-20 symbols, at least 1 capital letter and 1 digit.",
+    "passwordIsTooShort": "Password is too short",
+    "passwordIsTooLong": "Password is too long",
+    "confirm": "Passwords must match"
+  },
+  "forgotPassword": {
+    "title": "Forgot your password,",
+    "descr": "Please enter your email address below and we will send you a code to change your password.",
+    "send": "Send"
+  }
+}

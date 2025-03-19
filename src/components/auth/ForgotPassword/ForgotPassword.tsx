@@ -4,9 +4,14 @@ import FormItem from "../FormItem/FormItem";
 import Button from "../../commonComponents/Button/Button";
 import { recuverPasswordSchema } from "../../../utils/yup/authSchema";
 import CloseButton from "../../commonComponents/CloseButton/CloseButton";
+import { useTranslation } from "react-i18next";
 
 interface ForgotPasswordProps {
   toggleForgotPassword(): void;
+}
+
+interface FormData {
+  email: string;
 }
 
 const ForgotPassword: React.FC<ForgotPasswordProps> = ({
@@ -14,9 +19,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({
 }: ForgotPasswordProps) => {
   //   const dispatch = useAppDispatch();
 
-  interface FormData {
-    email: string;
-  }
+  const { t } = useTranslation();
 
   const INITIAL_FORM_DATA: FormData = {
     email: "",
@@ -31,11 +34,8 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({
   return (
     <section className={css.forgotPasswordSection}>
       <CloseButton descr="close recuver password form" />
-      <h2 className={css.title}>Забули пароль,</h2>
-      <p className={css.descr}>
-        Будь ласка, введіть свою адресу електронної пошти нижче, і ми надішлемо
-        вам код для зміни вашого пароля.
-      </p>
+      <h2 className={css.title}>{t("forgotPassword.title")}</h2>
+      <p className={css.descr}>{t("forgotPassword.descr")}</p>
       <Formik
         validationSchema={recuverPasswordSchema}
         initialValues={INITIAL_FORM_DATA}
@@ -45,11 +45,11 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({
           <FormItem
             type="email"
             name="email"
-            placeholder="Електронна пошта"
+            placeholder={t("registration.form.email")}
             iconId="mail"
           />
 
-          <Button text="Відправити" type="submit" />
+          <Button text={t("forgotPassword.send")} type="submit" />
         </Form>
       </Formik>
     </section>

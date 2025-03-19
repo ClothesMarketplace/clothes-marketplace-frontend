@@ -8,10 +8,12 @@ import sprite from "../../../assets/icons/sprite.svg";
 import { useState } from "react";
 import clsx from "clsx";
 import { loginSchema } from "../../../utils/yup/authSchema";
+import { useTranslation } from "react-i18next";
 
 const LoginForm: React.FC<{}> = () => {
   const dispatch = useAppDispatch();
   const [isRemembered, setIsRemembered] = useState<boolean>(false);
+  const { t } = useTranslation();
 
   interface FormData {
     email: string;
@@ -42,7 +44,7 @@ const LoginForm: React.FC<{}> = () => {
         <FormItem
           type="email"
           name="email"
-          placeholder="Електронна пошта"
+          placeholder={t("registration.form.email")}
           iconId="mail"
           autocomplete={isRemembered ? "email" : "off"}
         />
@@ -50,7 +52,7 @@ const LoginForm: React.FC<{}> = () => {
         <FormItem
           type="password"
           name="password"
-          placeholder="Пароль"
+          placeholder={t("registration.form.password")}
           iconId="lock"
           autocomplete={isRemembered ? "current-password" : "off"}
         />
@@ -68,10 +70,10 @@ const LoginForm: React.FC<{}> = () => {
               <use href={`${sprite}#check`}></use>
             </svg>
           </div>
-          <p className={css.labelText}>Запам'ятати мене для авто.входу.</p>
+          <p className={css.labelText}>{t("login.rememberMe")}</p>
         </label>
 
-        <Button text="Увійти" type="submit" />
+        <Button text={t("login.signIn")} type="submit" />
       </Form>
     </Formik>
   );

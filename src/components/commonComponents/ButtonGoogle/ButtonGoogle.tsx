@@ -1,10 +1,13 @@
 import css from "./ButtonGoogle.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
+import { useTranslation } from "react-i18next";
 
 const ButtonGoogle: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={css.wrapper}>
-      <span className={css.chooseText}>або увійти</span>
+      <span className={css.chooseText}>{t("registration.orSignInText")}</span>
       <a
         className={css.googleLink}
         //   href={`${BASE_URL}/api/auth/google`}

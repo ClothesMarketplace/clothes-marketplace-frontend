@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { CategoryState } from "./types";
 
 const initialState: CategoryState = {
-  categories: ["Одяг", "Взуття", "Електроніка", "Аксесуари"],
+  categories: ["Одяг", "Взуття", "Сумки", "Аксесуари"],
 };
 
 const categoriesSlice = createSlice({

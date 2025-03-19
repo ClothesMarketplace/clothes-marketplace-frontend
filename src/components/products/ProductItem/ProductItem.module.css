@@ -1,0 +1,11 @@
+.item {
+    max-width: 194px;
+  
+}
+
+.img {
+    width: 194px;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 12px;
+}

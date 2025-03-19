@@ -78,32 +78,31 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
 });
 
 //TODO: Implement the refreshUser operation
-export const refreshUser = createAsyncThunk(
-  "auth/refresh",
-  async (_, thunkAPI) => {
-    const state: RootState = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+export const refreshUser = createAsyncThunk<
+  any,
+  void,
+  { state: RootState; rejectValue: string }
+>("auth/refresh", async (_, thunkAPI) => {
+  const state: RootState = thunkAPI.getState();
+  const persistedToken = state.auth.token;
 
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue("Unable to fetch user");
-    }
+  if (persistedToken === null) {
+    return thunkAPI.rejectWithValue("Unable to fetch user");
+  }
 
-    try {
-      setAuthHeader(persistedToken);
-      // const res = await axios.get("users/current");
-      // return res.data;
-    } catch (error: any) {
-      if (axios.isAxiosError(error)) {
-        const errorMessage =
-          error.response?.data?.message ||
-          error.message ||
-          "Registration failed";
-        return thunkAPI.rejectWithValue(errorMessage);
-      } else {
-        return thunkAPI.rejectWithValue(
-          error.message || "An unexpected error occurred"
-        );
-      }
+  try {
+    setAuthHeader(persistedToken);
+    // const res = await axios.get("users/current");
+    // return res.data;
+  } catch (error: any) {
+    if (axios.isAxiosError(error)) {
+      const errorMessage =
+        error.response?.data?.message || error.message || "Registration failed";
+      return thunkAPI.rejectWithValue(errorMessage);
+    } else {
+      return thunkAPI.rejectWithValue(
+        error.message || "An unexpected error occurred"
+      );
     }
   }
-);
+});

@@ -11,7 +11,7 @@ export interface LoginUser {
 
 export interface AuthState {
   user: User;
-  token: string;
+  token: string | null;
   isLoggedIn: boolean;
   isRefreshing: boolean;
   isLoading: boolean;

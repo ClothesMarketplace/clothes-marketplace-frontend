@@ -40,7 +40,7 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/product/:productId" element={<ProductPage />} />
           <Route
             path="/advert"
             element={

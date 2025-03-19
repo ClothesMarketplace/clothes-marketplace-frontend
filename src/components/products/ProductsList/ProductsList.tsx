@@ -21,12 +21,12 @@ const ProductsList: React.FC<ProductsListProps> = ({limit}) => {
 
   return (
     <div>
+        {isLoading && !error && <Loader />}
       <ul className={css.list}>
         {displayedProducts.map((product) => (
           <ProductItem key={product.id} product={product} />
         ))}
       </ul>
-      {isLoading && !error && <Loader />}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { RegistrationForm } from "../../components/auth/RegistrationForm/RegistrationForm";
 import RegistrationSection from "../../components/auth/RegistrationSection/RegistrationSection";
 
-const RegistrationPage = () => {
+const RegistrationPage: React.FC = () => {
   return (
     <div className={clsx("container", "authContainer")}>
       <RegistrationSection>

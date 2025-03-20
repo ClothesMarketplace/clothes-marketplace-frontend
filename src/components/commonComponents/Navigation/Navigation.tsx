@@ -4,7 +4,7 @@ import sprite from "../../../assets/icons/sprite.svg";
 import { useAppSelector } from "../../../redux/store";
 import { selectIsLoggedIn } from "../../../redux/auth/selectors";
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   return (

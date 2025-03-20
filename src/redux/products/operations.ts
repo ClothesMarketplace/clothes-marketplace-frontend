@@ -2,13 +2,15 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { Product, ProductsResponse } from "./types";
 
-axios.defaults.baseURL = "https://dummyjson.com";
+// axios.defaults.baseURL = "https://dummyjson.com";
 
 export const fetchProducts = createAsyncThunk<ProductsResponse, void>(
   "products/fetchAll",
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get<ProductsResponse>("/products");
+      const { data } = await axios.get<ProductsResponse>(
+        "https://dummyjson.com/products"
+      );
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue((error as Error).message);
@@ -20,7 +22,9 @@ export const fetchProductById = createAsyncThunk<Product, number>(
   "products/fetchProduct",
   async (productId, thunkAPI) => {
     try {
-      const { data } = await axios.get<Product>(`/products/${productId}`);
+      const { data } = await axios.get<Product>(
+        `https://dummyjson.com/products/${productId}`
+      );
       console.log(data);
       return data;
     } catch (error) {
@@ -28,4 +32,3 @@ export const fetchProductById = createAsyncThunk<Product, number>(
     }
   }
 );
-

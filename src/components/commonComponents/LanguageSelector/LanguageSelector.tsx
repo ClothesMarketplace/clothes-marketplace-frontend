@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import css from "./LanguageSelector.module.css";
 import clsx from "clsx";
 
-const LanguageSelector = () => {
+const LanguageSelector: React.FC = () => {
   const { i18n } = useTranslation();
   const [activeLanguage, setActiveLanguage] = useState<string>(i18n.language);
 

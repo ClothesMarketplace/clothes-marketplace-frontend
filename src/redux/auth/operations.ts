@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { LoginUser, User } from "./types";
+import { AuthResponse, LoginUser, RegisterUser } from "./types";
 
 axios.defaults.baseURL = "https://clothes-marketplace-backend.onrender.com/api";
 
@@ -13,11 +13,14 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = "";
 };
 
-export const register = createAsyncThunk(
+export const register = createAsyncThunk<AuthResponse, RegisterUser>(
   "auth/registration",
-  async (credentials: User, thunkAPI) => {
+  async (credentials: RegisterUser, thunkAPI) => {
     try {
-      const res = await axios.post("Auth/Registration", credentials);
+      const res = await axios.post<AuthResponse>(
+        "Auth/Registration",
+        credentials
+      );
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error: any) {
@@ -36,11 +39,11 @@ export const register = createAsyncThunk(
   }
 );
 
-export const logIn = createAsyncThunk(
+export const logIn = createAsyncThunk<AuthResponse, LoginUser>(
   "auth/login",
   async (credentials: LoginUser, thunkAPI) => {
     try {
-      const res = await axios.post("Auth/Login", credentials);
+      const res = await axios.post<AuthResponse>("Auth/Login", credentials);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error: any) {

@@ -4,7 +4,7 @@ import { useAppSelector } from "../../redux/store";
 import { selectIsLoading } from "../../redux/auth/selectors";
 import Loader from "../../components/commonComponents/Loader/Loader";
 
-const LoginPage = () => {
+const LoginPage: React.FC = () => {
   const isLoading = useAppSelector(selectIsLoading);
 
   return (

@@ -1,11 +1,15 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { createSlice, isAnyOf, PayloadAction } from "@reduxjs/toolkit";
 import { register, logIn, logOut, refreshUser } from "./operations";
-import { AuthState } from "./types";
+import { AuthResponse, AuthState } from "./types";
 
 const initialState: AuthState = {
   user: {
-    name: "",
+    id: "",
+    userName: "",
     email: "",
+    role: "",
+    createdAt: "",
+    updatedAt: "",
   },
   token: "",
   isLoggedIn: false,
@@ -24,20 +28,26 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(register.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-      })
-      .addCase(logIn.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-      })
+      .addCase(
+        register.fulfilled,
+        (state, action: PayloadAction<AuthResponse>) => {
+          state.isLoading = false;
+          state.error = null;
+          state.user = action.payload.user;
+          state.token = action.payload.token;
+          state.isLoggedIn = true;
+        }
+      )
+      .addCase(
+        logIn.fulfilled,
+        (state, action: PayloadAction<AuthResponse>) => {
+          state.isLoading = false;
+          state.error = null;
+          state.user = action.payload.user;
+          state.token = action.payload.token;
+          state.isLoggedIn = true;
+        }
+      )
       .addCase(logOut.fulfilled, () => {
         return initialState;
       })
@@ -56,11 +66,14 @@ const authSlice = createSlice({
         // state.user = action.payload;
         state.token ? (state.isLoggedIn = true) : (state.isLoggedIn = false);
       })
-      .addCase(refreshUser.rejected, (state, action) => {
-        state.isRefreshing = false;
-        state.isLoading = false;
-        state.error = action.payload;
-      })
+      .addCase(
+        refreshUser.rejected,
+        (state, action: PayloadAction<unknown>) => {
+          state.isRefreshing = false;
+          state.isLoading = false;
+          state.error = action.payload;
+        }
+      )
 
       // Matchers -------------------------------
 
@@ -73,7 +86,7 @@ const authSlice = createSlice({
       )
       .addMatcher(
         isAnyOf(register.rejected, logIn.rejected, logOut.rejected),
-        (state, action) => {
+        (state, action: PayloadAction<unknown>) => {
           state.isLoading = false;
           state.error = action.payload;
         }

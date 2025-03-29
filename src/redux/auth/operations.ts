@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { AuthResponse, LoginUser, RegisterUser } from "./types";
 
-axios.defaults.baseURL = "https://clothes-marketplace-backend.onrender.com/api";
+axios.defaults.baseURL = "http://clothes-marketplace.runasp.net";
 
 const setAuthHeader = (token: string) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;

@@ -27,7 +27,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({
 
   const handleSubmit = (data: FormData, actions: FormikHelpers<FormData>) => {
     // dispatch(logIn(data));
-    console.log(data);
+    // console.log(data);
     actions.resetForm();
     toggleForgotPassword();
   };

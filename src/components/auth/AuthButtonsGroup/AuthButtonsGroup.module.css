@@ -1,0 +1,44 @@
+.authButtonsGroup {
+  width: 100%;
+  border: 1px solid var(--main-black);
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 100px;
+
+  .login,
+  .registration {
+    position: relative;
+    font-size: 14px;
+    padding: 0 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 12px;
+      right: 12px;
+      background-color: var(--main-black);
+      height: 1px;
+      translate: -100%;
+      opacity: 0;
+      border-radius: 100px;
+      transition: translate 0.3s ease-in-out 0.1s, opacity 0.4s ease-in-out 0.1s;
+    }
+
+    &:hover::after {
+      translate: 0;
+      opacity: 1;
+    }
+  }
+
+  .login {
+    border-right: 1px solid var(--main-black);
+    &::after {
+      translate: 100%;
+    }
+  }
+}

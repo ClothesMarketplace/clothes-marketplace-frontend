@@ -16,6 +16,7 @@ import { categoriesReducer } from "./categories/slice";
 import { productsReducer } from "./products/slice";
 
 import { PersistedAuthState } from "./auth/types";
+import { aditionalStatesReducer } from "./additional/slice";
 
 const authPersistConfig = {
   key: "auth",
@@ -32,7 +33,8 @@ export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     categories: categoriesReducer,
-    products: productsReducer
+    products: productsReducer,
+    aditionalStates: aditionalStatesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -54,4 +56,3 @@ export const useAppSelector = useSelector.withTypes<RootState>();
 // example
 // const dispatch = useAppDispatch();
 // dispatch(register(user));
-

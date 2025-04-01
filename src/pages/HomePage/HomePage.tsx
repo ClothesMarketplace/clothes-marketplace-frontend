@@ -4,10 +4,9 @@ import { useAppDispatch } from "../../redux/store";
 import { fetchProducts } from "../../redux/products/operations";
 
 const HomePage = () => {
-
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(fetchProducts())
+    dispatch(fetchProducts());
   }, [dispatch]);
 
   return (

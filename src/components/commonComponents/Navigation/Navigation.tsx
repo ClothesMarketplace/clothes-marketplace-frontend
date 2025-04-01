@@ -1,13 +1,10 @@
 import { NavLink } from "react-router-dom";
 import css from "./Navigation.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
-import { useAppSelector } from "../../../redux/store";
-import { selectIsLoggedIn } from "../../../redux/auth/selectors";
-import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import { useTranslation } from "react-i18next";
+import BurgerMenuButton from "../BurgerMenuButton/BurgerMenuButton";
 
 const Navigation: React.FC = () => {
-  const isLoggedIn = useAppSelector(selectIsLoggedIn);
   const { t } = useTranslation();
 
   return (
@@ -37,20 +34,9 @@ const Navigation: React.FC = () => {
             </svg>
           </NavLink>
         </li>
-        {/* {!isLoggedIn && (
-          <li>
-            <NavLink to="/login">Увійти</NavLink>
-          </li>
-        )}
-        {!isLoggedIn && (
-          <li>
-            <NavLink to="/registration">Зареєструватися</NavLink>
-          </li>
-        )} */}
-
-        {/* <li>
-          <LanguageSelector />
-        </li> */}
+        <li className={css.menu}>
+          <BurgerMenuButton />
+        </li>
       </ul>
     </nav>
   );

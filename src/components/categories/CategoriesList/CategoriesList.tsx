@@ -1,8 +1,23 @@
+import { selectCategories } from "../../../redux/categories/selectors";
+import { useAppSelector } from "../../../redux/store";
+import css from "./CategoriesList.module.css";
+import React from "react";
 
-const CategoriesList = () => {
+const CategoriesList: React.FC = () => {
+  const categories = useAppSelector(selectCategories);
+
   return (
-    <div>CategoriesList</div>
-  )
-}
+    categories &&
+    Array.isArray(categories) && (
+      <ul className={css.categoriesList}>
+        {categories.map((category) => (
+          <li className={css.categoryItem} key={category.id}>
+            <div className={css.category}>{category.name}</div>
+          </li>
+        ))}
+      </ul>
+    )
+  );
+};
 
-export default CategoriesList
+export default CategoriesList;

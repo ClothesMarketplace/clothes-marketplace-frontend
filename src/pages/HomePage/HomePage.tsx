@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { fetchProducts } from "../../redux/products/operations";
 import { selectIsMenuOpen } from "../../redux/additional/slice";
 import Menu from "../../components/commonComponents/Menu/Menu";
+import HeroSection from "../../components/commonComponents/HeroSection/HeroSection";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
@@ -19,7 +20,7 @@ const HomePage = () => {
     </div>
   ) : (
     <div className="container">
-      <h1>HomePage</h1>
+      <HeroSection />
       <br />
       <h2>Рекомендовані товари</h2>
       <ProductsList limit={6} />

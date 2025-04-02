@@ -26,9 +26,18 @@ const categoriesSlice = createSlice({
         ) => {
           state.isLoading = false;
           state.error = null;
-          console.log("action.payload", action.payload);
-
           state.categories = action.payload;
+        }
+      )
+      .addCase(
+        getCategories.rejected,
+        (state: CategoriesState, action: PayloadAction<unknown>) => {
+          state.isLoading = false;
+          state.error =
+            typeof action.payload === "string"
+              ? action.payload
+              : "Something went wrong";
+          state.categories = [];
         }
       );
   },

@@ -8,6 +8,7 @@ import RestrictedRoute from "./components/auth/RestrictedRoute/RestrictedRoute";
 import { useAppDispatch } from "./redux/store";
 import { refreshUser } from "./redux/auth/operations";
 import Loader from "./components/commonComponents/Loader/Loader";
+import { getCategories } from "./redux/categories/operations";
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const FavoritesPage = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
 const ProductPage = lazy(() => import("./pages/ProductPage/ProductPage"));
@@ -25,6 +26,7 @@ function App() {
 
   useEffect(() => {
     dispatch(refreshUser());
+    dispatch(getCategories());
   }, []);
 
   return (

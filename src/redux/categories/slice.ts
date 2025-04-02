@@ -1,17 +1,37 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { CategoryState } from "./types";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { CategoriesState, GetCategoriesResponse } from "./types";
+import { getCategories } from "./operations";
 
-const initialState: CategoryState = {
-  categories: ["Одяг", "Взуття", "Сумки", "Аксесуари"],
+const initialState: CategoriesState = {
+  categories: [],
+  isLoading: false,
+  error: null,
 };
 
 const categoriesSlice = createSlice({
   name: "categories",
   initialState,
   reducers: {},
-  // extraReducers: (builder) => {
-  //     builder.addCase()
-  // }
+  extraReducers: (builder) => {
+    builder
+      .addCase(getCategories.pending, (state: CategoriesState) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(
+        getCategories.fulfilled,
+        (
+          state: CategoriesState,
+          action: PayloadAction<GetCategoriesResponse>
+        ) => {
+          state.isLoading = false;
+          state.error = null;
+          console.log("action.payload", action.payload);
+
+          state.categories = action.payload;
+        }
+      );
+  },
 });
 
 export const categoriesReducer = categoriesSlice.reducer;

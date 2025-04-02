@@ -47,8 +47,6 @@ export const logIn = createAsyncThunk<AuthResponse, LoginUser>(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error: any) {
-      console.log(error.response);
-
       if (axios.isAxiosError(error)) {
         const errorMessage =
           error.response?.data?.error || "Authorization failed";

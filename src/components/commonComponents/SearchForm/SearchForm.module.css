@@ -1,8 +1,10 @@
 .searchForm {
   width: 100%;
   min-height: 56px;
-  position: absolute;
-  top: -16%;
+  position: relative;
+  background-color: var(--white);
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
 
   .searchInput {
     width: 100%;
@@ -21,5 +23,9 @@
     right: 12px;
     bottom: 50%;
     translate: 0 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-black);
   }
 }

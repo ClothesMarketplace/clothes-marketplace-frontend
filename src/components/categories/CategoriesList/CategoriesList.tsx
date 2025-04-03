@@ -12,7 +12,9 @@ const CategoriesList: React.FC = () => {
       <ul className={css.categoriesList}>
         {categories.map((category) => (
           <li className={css.categoryItem} key={category.id}>
-            <div className={css.category}>{category.name}</div>
+            <div className={css.category} role="button">
+              <p className={css.categoryText}>{category.name}</p>
+            </div>
           </li>
         ))}
       </ul>

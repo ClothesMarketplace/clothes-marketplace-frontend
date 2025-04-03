@@ -1,9 +1,5 @@
 .searchWrapper {
-  position: relative;
-  background-color: var(--white);
   width: 90%;
   margin: 0 auto;
-  border-bottom-right-radius: 12px;
-  border-bottom-left-radius: 12px;
-  padding-top: 68px;
+  border-radius: 12px;
 }

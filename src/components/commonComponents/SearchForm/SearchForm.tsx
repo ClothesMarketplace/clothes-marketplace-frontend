@@ -1,5 +1,6 @@
 import { useState } from "react";
 import css from "./SearchForm.module.css";
+import sprite from "../../../assets/icons/sprite.svg";
 
 const SearchForm: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -24,7 +25,9 @@ const SearchForm: React.FC = () => {
         onChange={handleChange}
       />
       <button className={css.searchBtn} type="submit">
-        S
+        <svg className={css.searchIcon} width="16" height="16">
+          <use href={`${sprite}#search`}></use>
+        </svg>
       </button>
     </form>
   );

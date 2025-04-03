@@ -7,7 +7,7 @@ export const getCategories = createAsyncThunk<GetCategoriesResponse, void>(
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get<GetCategoriesResponse>("categories");
-      return data;
+      return data.toSorted((a, b) => a.name.localeCompare(b.name));
     } catch (error) {
       return thunkAPI.rejectWithValue((error as Error).message);
     }

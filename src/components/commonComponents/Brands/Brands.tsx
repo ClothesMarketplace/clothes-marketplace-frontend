@@ -1,4 +1,4 @@
-import { brandImages } from "../../../assets/images/images";
+import { images } from "../../../assets/images/images";
 import Carousel from "../Carousel/Carousel";
 import css from "./Brands.module.css";
 
@@ -8,23 +8,18 @@ const Brands: React.FC = () => {
       <div className={css.imageContainer}>
         <img
           className={css.img}
-          src={brandImages.dolce_gabbana}
+          src={images.dolce_gabbana}
           alt="dolcegabbana"
           width={375}
         />
       </div>
       <div className={css.imageContainer}>
-        <img
-          className={css.img}
-          src={brandImages.boss}
-          alt="Gucci"
-          width={375}
-        />
+        <img className={css.img} src={images.boss} alt="Gucci" width={375} />
       </div>
       <div className={css.imageContainer}>
         <img
           className={css.img}
-          src={brandImages.gucci}
+          src={images.gucci}
           alt="hugoboss"
           width={375}
         />
@@ -32,18 +27,13 @@ const Brands: React.FC = () => {
       <div className={css.imageContainer}>
         <img
           className={css.img}
-          src={brandImages.lacoste}
+          src={images.lacoste}
           alt="lacoste"
           width={375}
         />
       </div>
       <div className={css.imageContainer}>
-        <img
-          className={css.img}
-          src={brandImages.zara}
-          alt="zara"
-          width={375}
-        />
+        <img className={css.img} src={images.zara} alt="zara" width={375} />
       </div>
     </Carousel>
   );

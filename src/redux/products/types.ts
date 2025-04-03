@@ -1,20 +1,15 @@
 export interface Product {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  rating: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[];
-};
+  id: string;
+  name: string;
+  dollarPrice: number;
+  urlMainImage: null | string;
+}
 
 export interface ProductsResponse {
-  products: Product[];
-  total?: number;
-  skip?: number;
-  limit?: number;
+  items: Product[];
+  totalItems: number;
+  skip: number;
+  take: number;
 }
 
 export interface ProductsState {

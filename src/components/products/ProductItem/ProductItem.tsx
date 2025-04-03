@@ -1,6 +1,7 @@
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom";
 import { Product } from "../../../redux/products/types";
-import css from './ProductItem.module.css'
+import css from "./ProductItem.module.css";
+import { images } from "../../../assets/images/images";
 
 interface ProductItemProps {
   product: Product;
@@ -8,19 +9,22 @@ interface ProductItemProps {
 
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   const productLocation = useLocation();
-  const { id, title, price, rating, brand, images} = product;
+  const { id, name, dollarPrice, urlMainImage } = product;
 
   return (
     <li className={css.item} id={String(id)}>
       <Link to={`/product/${id}`} state={productLocation}>
-        <img className={css.img} src={images[0]} alt={title} loading="lazy" />
+        <img
+          className={css.img}
+          src={urlMainImage || images.tShirt}
+          alt={name}
+          loading="lazy"
+        />
       </Link>
-      <h2>{title}</h2>
-      <h3>{brand}</h3>
-      <p>{price}</p>
-      <p>{rating}</p>
+      <h2>{name}</h2>
+      <p>{dollarPrice}</p>
     </li>
   );
-}
+};
 
-export default ProductItem
+export default ProductItem;

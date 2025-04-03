@@ -12,20 +12,17 @@ interface ProductsListProps {
   limit?: number;
 }
 
-const ProductsList: React.FC<ProductsListProps> = ({ limit }) => {
+const ProductsList: React.FC<ProductsListProps> = () => {
   const products = useAppSelector(selectProducts);
   const error = useAppSelector(selectProductsError);
   const isLoading = useAppSelector(selectProductsLoading);
 
-  const displayedProducts = limit ? products.slice(0, limit) : products;
-
-  // console.log("Products:", products);
-
   return (
     <div>
       {isLoading && !error && <Loader />}
+      {error && <p>Something went wrong</p>}
       <ul className={css.list}>
-        {displayedProducts.map((product) => (
+        {products.map((product) => (
           <ProductItem key={product.id} product={product} />
         ))}
       </ul>

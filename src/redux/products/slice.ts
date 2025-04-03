@@ -36,7 +36,7 @@ const productsSlice = createSlice({
         (state, action: PayloadAction<ProductsResponse>) => {
           state.isLoading = false;
           state.error = null;
-          state.products = action.payload.products;
+          state.products = action.payload.items;
         }
       )
       .addCase(fetchProducts.rejected, handleRejected)

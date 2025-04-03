@@ -12,7 +12,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   const { id, name, dollarPrice, urlMainImage } = product;
 
   return (
-    <li className={css.item} id={String(id)}>
+    <li className={css.item} id={id}>
       <Link to={`/product/${id}`} state={productLocation}>
         <img
           className={css.img}

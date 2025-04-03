@@ -22,7 +22,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     if (productId) {
-      dispatch(fetchProductById(Number(productId)));
+      dispatch(fetchProductById(productId));
     }
   }, [productId, dispatch]);
 

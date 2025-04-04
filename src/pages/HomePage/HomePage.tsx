@@ -1,21 +1,32 @@
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { selectIsMenuOpen } from "../../redux/additional/slice";
+import Menu from "../../components/commonComponents/Menu/Menu";
+import HeroSection from "../../components/commonComponents/HeroSection/HeroSection";
+import RecommendedProductsSection from "../../components/products/RecommendedProductsSection/RecommendedProductsSection";
 import { useEffect } from "react";
-import ProductsList from "../../components/products/ProductsList/ProductsList";
-import { useAppDispatch } from "../../redux/store";
+import { refreshUser } from "../../redux/auth/operations";
+import { getCategories } from "../../redux/categories/operations";
 import { fetchProducts } from "../../redux/products/operations";
 
 const HomePage = () => {
-
   const dispatch = useAppDispatch();
+
   useEffect(() => {
-    dispatch(fetchProducts())
+    dispatch(refreshUser());
+    dispatch(getCategories());
+    dispatch(fetchProducts());
   }, [dispatch]);
 
-  return (
+  const isMenuOpen = useAppSelector(selectIsMenuOpen);
+
+  return isMenuOpen ? (
     <div className="container">
-      <h1>HomePage</h1>
-      <br />
-      <h2>Рекомендовані товари</h2>
-      <ProductsList limit={6} />
+      <Menu />
+    </div>
+  ) : (
+    <div className="container">
+      <HeroSection />
+      <RecommendedProductsSection />
     </div>
   );
 };

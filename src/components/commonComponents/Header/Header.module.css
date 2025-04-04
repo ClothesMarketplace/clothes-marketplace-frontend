@@ -1,11 +1,23 @@
 .header {
   display: flex;
-  justify-content: space-between;
-  padding: 37px 107px 27px;
-}
-
-.logoContainer {
-  display: flex;
   align-items: center;
-  gap: 40px;
+  padding: 12px;
+
+  .logoLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      scale: 1.05;
+    }
+
+    @media screen and (max-width: 350px) {
+      .logoIcon {
+        width: 48px;
+        height: 32px;
+      }
+    }
+  }
 }

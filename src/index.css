@@ -58,21 +58,22 @@ button {
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 40px 30px;
   background-color: var(--white);
 }
 
 .authContainer {
   border-radius: 12px;
+  padding: 40px 30px;
   border: 1px solid var(--main-black);
+  margin-top: 40px;
 }
 
-@media screen and (min-width: 390px) {
+@media screen and (min-width: 400px) {
   .container {
     max-width: 400px;
   }
 }
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
   }
@@ -82,7 +83,7 @@ button {
     max-width: 1440px;
     padding: 67px 107px 54px;
   }
-}
+} */
 
 button {
   cursor: pointer;

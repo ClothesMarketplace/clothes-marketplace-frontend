@@ -1,0 +1,31 @@
+.searchForm {
+  width: 100%;
+  min-height: 56px;
+  position: relative;
+  background-color: var(--white);
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+
+  .searchInput {
+    width: 100%;
+    padding: 16px;
+    border-radius: 100px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .searchBtn {
+    position: absolute;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    z-index: 2;
+    right: 12px;
+    bottom: 50%;
+    translate: 0 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-black);
+  }
+}

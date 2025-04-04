@@ -1,4 +1,68 @@
-.navList {
+.nav {
+  width: 100%;
+
+  .navList {
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    margin-left: 16px;
+
+    .advert {
+      max-width: 160px;
+      align-content: center;
+
+      .advertLink {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px;
+        border-radius: 100px;
+        background-color: var(--gray-secondary);
+
+        .advertText {
+          font-size: 14px;
+          font-weight: 600;
+        }
+
+        .advertIconWrapper {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background-color: var(--white);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .advertIcon {
+            fill: var(--main-black);
+          }
+        }
+      }
+
+      @media screen and (max-width: 350px) {
+        .advertLink {
+          padding: 4px 6px;
+
+          .advertText {
+            font-size: 12px;
+            text-wrap: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+
+    .favorites,
+    .notifications,
+    .menu {
+      align-content: center;
+
+      .favoritesLink,
+      .notificationsLink {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+      }
+    }
+  }
 }

@@ -1,0 +1,9 @@
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: max-content;
+  background-color: var(--main-black);
+  padding: 20px 0;
+  align-content: center;
+  margin-bottom: 24px;
+}

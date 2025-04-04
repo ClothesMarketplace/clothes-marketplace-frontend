@@ -1,33 +1,33 @@
 import { Link } from "react-router-dom";
 import { Product } from "../../../redux/products/types";
 import { MutableRefObject } from "react";
-import css from './ProductDetails.module.css'
+import css from "./ProductDetails.module.css";
+import { images } from "../../../assets/images/images";
 
 interface ProductProps {
   product: Product;
-  backLink: MutableRefObject<any>; 
+  backLink: MutableRefObject<any>;
 }
 
 const ProductDetails: React.FC<ProductProps> = ({ product, backLink }) => {
-  const { title, description, price, rating, brand, images } = product;
+  const { name, dollarPrice, urlMainImage } = product;
 
   return (
     <div>
-      <Link to={backLink.current ?? "/"}>
-        Go back
-      </Link>
-      <ul className={css.list}>
+      <Link to={backLink.current ?? "/"}>Go back</Link>
+      {/* <ul className={css.list}>
         {images?.map((image, idx) => (
           <li key={idx}>
             <img className={css.img} src={image} alt={title} />
           </li>
         ))}
-      </ul>
-      <h2>{title}</h2>
-      <h3>{brand}</h3>
-      <p>{description}</p>
-      <p>{price}</p>
-      <p>{rating}</p>
+      </ul> */}
+      <img className={css.img} src={urlMainImage || images.tShirt} alt={name} />
+      <h2>{name}</h2>
+      {/* <h3>{brand}</h3> */}
+      {/* <p>{description}</p> */}
+      <p>{dollarPrice}</p>
+      {/* <p>{rating}</p> */}
     </div>
   );
 };

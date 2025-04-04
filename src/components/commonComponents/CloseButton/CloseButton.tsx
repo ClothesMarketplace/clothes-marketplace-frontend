@@ -4,12 +4,16 @@ import { useNavigate } from "react-router-dom";
 
 interface ButtonProps {
   descr: string;
+  externalHandleClick?: () => void;
 }
 
-const CloseButton: React.FC<ButtonProps> = ({ descr }: ButtonProps) => {
+const CloseButton: React.FC<ButtonProps> = ({
+  descr,
+  externalHandleClick,
+}: ButtonProps) => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/");
+    externalHandleClick ? externalHandleClick() : navigate("/");
   };
 
   return (

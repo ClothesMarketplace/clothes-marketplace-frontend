@@ -12,7 +12,7 @@ import Loader from "../../components/commonComponents/Loader/Loader";
 
 const ProductPage = () => {
   const { productId } = useParams<{ productId: string }>();
-  console.log(productId);
+  // console.log(productId);
   const location = useLocation();
   const backLink = useRef(location.state?.from ?? "/");
   const dispatch = useAppDispatch();
@@ -22,7 +22,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     if (productId) {
-      dispatch(fetchProductById(Number(productId)));
+      dispatch(fetchProductById(productId));
     }
   }, [productId, dispatch]);
 

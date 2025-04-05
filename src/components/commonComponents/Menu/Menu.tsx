@@ -23,7 +23,7 @@ const Menu: React.FC = () => {
       <CategoriesList />
       <h2 className={css.menuBrands}>{t("menu.famousBrands")}</h2>
       <CategoriesList />
-      <h2 className={css.menuLanguage}>{t("menu.language")}</h2>
+
       <h2 className={css.menuCategories}>Навігація</h2>
       <ul className={css.menuList}>
         <li>
@@ -42,6 +42,7 @@ const Menu: React.FC = () => {
           <p>Соціальні мережі</p>
         </li>
       </ul>
+      <h2 className={css.menuLanguage}>{t("menu.language")}</h2>
       <LanguageSelector />
     </div>
   );

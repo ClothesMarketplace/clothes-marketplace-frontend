@@ -1,4 +1,3 @@
-import CategoriesList from "../../categories/CategoriesList/CategoriesList";
 import Brands from "../Brands/Brands";
 import SearchForm from "../SearchForm/SearchForm";
 import SearchWrapper from "../SearchWrapper/SearchWrapper";
@@ -10,7 +9,6 @@ const HeroSection: React.FC = () => {
       <Brands />
       <SearchWrapper>
         <SearchForm />
-        <CategoriesList />
       </SearchWrapper>
     </section>
   );

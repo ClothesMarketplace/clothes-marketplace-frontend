@@ -10,8 +10,64 @@
     width: 100%;
     padding: 16px;
     border-radius: 100px;
-    position: absolute;
+    /* position: absolute; */
     z-index: 1;
+  }
+
+  .categoriesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 16px 10px;
+    background-color: var(--white);
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+
+    .categoryItem {
+      width: max-content;
+      border: 1px solid var(--main-black);
+      border-radius: 100px;
+
+      &:hover {
+        border-color: var(--dark-royalty);
+        box-shadow: 1px 1px 4px var(--dark-royalty);
+
+        .categoryLabel {
+          &::before {
+            background-color: var(--dark-royalty);
+            box-shadow: 1px 1px 4px var(--dark-royalty);
+          }
+        }
+      }
+
+      .categoryCheckbox:checked + .categoryLabel {
+        color: var(--dark-royalty);
+
+        &::before {
+          background-color: var(--dark-royalty);
+          box-shadow: 1px 1px 4px 1px var(--dark-royalty);
+        }
+      }
+
+      .categoryLabel {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 6px;
+
+        &::before {
+          content: "";
+          display: block;
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: var(--main-black);
+        }
+      }
+    }
   }
 
   .searchBtn {
@@ -21,8 +77,8 @@
     height: 36px;
     z-index: 2;
     right: 12px;
-    bottom: 50%;
-    translate: 0 50%;
+    top: 0;
+    translate: 0 30%;
     display: flex;
     align-items: center;
     justify-content: center;

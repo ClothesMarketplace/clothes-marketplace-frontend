@@ -39,5 +39,10 @@
   },
   "nav": {
     "sellNow": "Продати зараз"
+  },
+  "menu": {
+    "categories": "Категорії",
+    "famousBrands": "Популярні бренди",
+    "language": "Мова"
   }
 }

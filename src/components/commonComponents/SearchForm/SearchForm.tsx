@@ -1,23 +1,30 @@
 import { useState } from "react";
 import css from "./SearchForm.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
-import { useAppSelector } from "../../../redux/store";
+import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { selectCategories } from "../../../redux/categories/selectors";
 import clsx from "clsx";
+import { fetchProducts } from "../../../redux/products/operations";
+import { useNavigate } from "react-router-dom";
 
 const SearchForm: React.FC = () => {
   const categories = useAppSelector(selectCategories);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [checkedCategory, setCheckedCategory] = useState<string>("");
+  const [checkedCategoryId, setCheckedCategoryId] = useState<string>("");
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-
-    console.log("Search query submitted:", searchQuery);
-    console.log("Checked category:", checkedCategory);
-
+    dispatch(
+      fetchProducts(
+        `SearchQuery=${searchQuery}&CategoryId=${checkedCategoryId}`
+      )
+    );
+    navigate("/products");
     setSearchQuery("");
-    setCheckedCategory("");
+    setCheckedCategoryId("");
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,10 +48,10 @@ const SearchForm: React.FC = () => {
                 className={clsx(css.categoryCheckbox, "visually-hidden")}
                 type="checkbox"
                 id={category.id}
-                value={category.name}
-                checked={checkedCategory === category.name}
+                value={category.id}
+                checked={checkedCategoryId === category.id}
                 onChange={(e) => {
-                  setCheckedCategory(e.target.checked ? category.name : "");
+                  setCheckedCategoryId(e.target.checked ? category.id : "");
                 }}
               />
               <label className={css.categoryLabel} htmlFor={category.id}>

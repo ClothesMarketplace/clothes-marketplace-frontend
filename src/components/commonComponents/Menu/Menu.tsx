@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 import { closeMenu } from "../../../redux/additional/slice";
 import { useAppDispatch } from "../../../redux/store";
 import AuthButtonsGroup from "../../auth/AuthButtonsGroup/AuthButtonsGroup";
-import CategoriesList from "../../categories/CategoriesList/CategoriesList";
 import CloseButton from "../CloseButton/CloseButton";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import css from "./Menu.module.css";
@@ -20,9 +19,9 @@ const Menu: React.FC = () => {
       <CloseButton descr="close menu" externalHandleClick={handleCloseMenu} />
       <AuthButtonsGroup />
       <h2 className={css.menuCategories}>{t("menu.categories")}</h2>
-      <CategoriesList />
+      {/* <CategoriesList /> */}
       <h2 className={css.menuBrands}>{t("menu.famousBrands")}</h2>
-      <CategoriesList />
+      {/* <CategoriesList /> */}
 
       <h2 className={css.menuCategories}>Навігація</h2>
       <ul className={css.menuList}>

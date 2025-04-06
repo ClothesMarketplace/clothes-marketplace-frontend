@@ -14,7 +14,7 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(refreshUser());
     dispatch(getCategories());
-    dispatch(fetchProducts());
+    dispatch(fetchProducts(null));
   }, [dispatch]);
 
   const isMenuOpen = useAppSelector(selectIsMenuOpen);

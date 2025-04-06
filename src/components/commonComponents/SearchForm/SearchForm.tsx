@@ -6,6 +6,7 @@ import { selectCategories } from "../../../redux/categories/selectors";
 import clsx from "clsx";
 import { fetchProducts } from "../../../redux/products/operations";
 import { useNavigate } from "react-router-dom";
+import { addLastSearchRequest } from "../../../redux/additional/slice";
 
 const SearchForm: React.FC = () => {
   const categories = useAppSelector(selectCategories);
@@ -23,6 +24,7 @@ const SearchForm: React.FC = () => {
       )
     );
     navigate("/products");
+    dispatch(addLastSearchRequest(searchQuery));
     setSearchQuery("");
     setCheckedCategoryId("");
   };
@@ -33,13 +35,20 @@ const SearchForm: React.FC = () => {
 
   return (
     <form className={css.searchForm} onSubmit={handleSubmit}>
-      <input
-        className={css.searchInput}
-        type="text"
-        placeholder="Search..."
-        value={searchQuery}
-        onChange={handleChange}
-      />
+      <div className={css.searchContainer}>
+        <input
+          className={css.searchInput}
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={handleChange}
+        />
+        <button className={css.searchBtn} type="submit">
+          <svg className={css.searchIcon} width="16" height="16">
+            <use href={`${sprite}#search`}></use>
+          </svg>
+        </button>
+      </div>
       {categories && Array.isArray(categories) && (
         <ul className={css.categoriesList}>
           {categories.map((category) => (
@@ -61,11 +70,6 @@ const SearchForm: React.FC = () => {
           ))}
         </ul>
       )}
-      <button className={css.searchBtn} type="submit">
-        <svg className={css.searchIcon} width="16" height="16">
-          <use href={`${sprite}#search`}></use>
-        </svg>
-      </button>
     </form>
   );
 };

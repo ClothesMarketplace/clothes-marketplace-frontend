@@ -1,7 +1,8 @@
 .searchWrapper {
   width: 90%;
   margin: 0 auto;
-  border-radius: 12px;
+  border-radius: 30px 30px 12px 12px;
   position: relative;
-  overflow: hidden;
+  background-color: var(--white);
+  padding-bottom: 16px;
 }

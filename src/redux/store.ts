@@ -16,25 +16,35 @@ import { categoriesReducer } from "./categories/slice";
 import { productsReducer } from "./products/slice";
 
 import { PersistedAuthState } from "./auth/types";
-import { aditionalStatesReducer } from "./additional/slice";
+import {
+  aditionalStatesReducer,
+  PersistedAditionalState,
+} from "./additional/slice";
 
 const authPersistConfig = {
   key: "auth",
   storage,
   whitelist: ["token"],
 };
+const lastSearchRequestConfig = {
+  key: "additionalStates",
+  storage,
+  whitelist: ["lastSearchRequests"],
+};
 
 const persistedAuthReducer: Reducer<PersistedAuthState> = persistReducer(
   authPersistConfig,
   authReducer
 );
+const persistedLastSearchRequestReducer: Reducer<PersistedAditionalState> =
+  persistReducer(lastSearchRequestConfig, aditionalStatesReducer);
 
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     categories: categoriesReducer,
     products: productsReducer,
-    aditionalStates: aditionalStatesReducer,
+    aditionalStates: persistedLastSearchRequestReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -25,6 +25,11 @@ const aditionalStatesSlice = createSlice({
       state.isMenuOpen = false;
     },
     addLastSearchRequest: (state, action) => {
+      if (state.lastSearchRequests.includes(action.payload)) {
+        state.lastSearchRequests = state.lastSearchRequests.filter(
+          (request) => request !== action.payload
+        );
+      }
       state.lastSearchRequests.unshift(action.payload);
     },
     removeLastSearchRequest: (state, action) => {

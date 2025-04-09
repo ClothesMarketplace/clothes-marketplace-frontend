@@ -8,29 +8,36 @@ import { fetchProducts } from "../../../redux/products/operations";
 import { useNavigate } from "react-router-dom";
 import { addLastSearchRequest } from "../../../redux/additional/slice";
 
-const SearchForm: React.FC = () => {
+interface SearchFormProps {
+  searchQuery: string;
+  handleSearchQueryChange: (query: string) => void;
+}
+
+const SearchForm: React.FC<SearchFormProps> = ({
+  searchQuery,
+  handleSearchQueryChange,
+}) => {
   const categories = useAppSelector(selectCategories);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const [searchQuery, setSearchQuery] = useState<string>("");
   const [checkedCategoryId, setCheckedCategoryId] = useState<string>("");
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     dispatch(
       fetchProducts(
-        `SearchQuery=${searchQuery}&CategoryId=${checkedCategoryId}`
+        `SearchQuery=${searchQuery.trim()}&CategoryId=${checkedCategoryId}`
       )
     );
     navigate("/products");
-    dispatch(addLastSearchRequest(searchQuery));
-    setSearchQuery("");
+    dispatch(addLastSearchRequest(searchQuery.trim()));
+    handleSearchQueryChange("");
     setCheckedCategoryId("");
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
+    handleSearchQueryChange(event.target.value);
   };
 
   return (

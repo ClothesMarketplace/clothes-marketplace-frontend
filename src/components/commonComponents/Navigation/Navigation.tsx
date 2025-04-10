@@ -20,17 +20,17 @@ const Navigation: React.FC = () => {
             </div>
           </NavLink>
         </li>
-        <li className={css.favorites}>
-          <NavLink className={css.favoritesLink} to="/favorites">
-            <svg width="24" height="24">
-              <use href={`${sprite}#hart`}></use>
+        <li className={css.notifications}>
+          <NavLink className={css.notificationsLink} to="/notifications">
+            <svg className={css.iconBell} width="24" height="24">
+              <use href={`${sprite}#bell`}></use>
             </svg>
           </NavLink>
         </li>
-        <li className={css.notifications}>
-          <NavLink className={css.notificationsLink} to="/notifications">
-            <svg width="24" height="24">
-              <use href={`${sprite}#bell`}></use>
+        <li className={css.favorites}>
+          <NavLink className={css.favoritesLink} to="/favorites">
+            <svg className={css.iconHart} width="24" height="24">
+              <use href={`${sprite}#hart`}></use>
             </svg>
           </NavLink>
         </li>

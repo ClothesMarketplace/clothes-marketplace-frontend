@@ -59,7 +59,7 @@
       height: 2px;
       width: 2px;
       border-radius: 50%;
-      box-shadow: 1px 1px 6px 1px var(--dark-royalty);
+      box-shadow: 2px 2px 3px -2px var(--deep-sea-exploration);
     }
   }
 }

@@ -10,7 +10,7 @@ const BurgerMenuButton: React.FC = () => {
   };
   return (
     <button className={css.menuBtn} type="button" onClick={handleMenuOpen}>
-      <svg className={css.menuIcon} width="44" height="44">
+      <svg className={css.menuIcon} width="24" height="24">
         <use href={`${sprite}#jam-menu`}></use>
       </svg>
     </button>

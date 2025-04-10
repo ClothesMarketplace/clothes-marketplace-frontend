@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { fetchProducts } from "../../../redux/products/operations";
 import { useNavigate } from "react-router-dom";
 import { addLastSearchRequest } from "../../../redux/additional/slice";
+import SearchLastRequests from "../SearchLastRequests/SearchLastRequests";
 
 interface SearchFormProps {
   searchQuery: string;
@@ -46,36 +47,44 @@ const SearchForm: React.FC<SearchFormProps> = ({
         <input
           className={css.searchInput}
           type="text"
-          placeholder="Search..."
+          placeholder="Пошук предмета"
           value={searchQuery}
           onChange={handleChange}
         />
         <button className={css.searchBtn} type="submit">
-          <svg className={css.searchIcon} width="16" height="16">
+          <span className={css.searchBtnText}>Шукати</span>
+          <svg className={css.searchIcon} width="20" height="20">
             <use href={`${sprite}#search`}></use>
           </svg>
         </button>
       </div>
       {categories && Array.isArray(categories) && (
-        <ul className={css.categoriesList}>
-          {categories.map((category) => (
-            <li className={css.categoryItem} key={category.id}>
-              <input
-                className={clsx(css.categoryCheckbox, "visually-hidden")}
-                type="checkbox"
-                id={category.id}
-                value={category.id}
-                checked={checkedCategoryId === category.id}
-                onChange={(e) => {
-                  setCheckedCategoryId(e.target.checked ? category.id : "");
-                }}
-              />
-              <label className={css.categoryLabel} htmlFor={category.id}>
-                {category.name}
-              </label>
-            </li>
-          ))}
-        </ul>
+        <div className={css.categoriesContainer}>
+          <div className={css.categoriesWrapper}>
+            <ul className={css.categoriesList}>
+              {categories.map((category) => (
+                <li className={css.categoryItem} key={category.id}>
+                  <input
+                    className={clsx(css.categoryCheckbox, "visually-hidden")}
+                    type="checkbox"
+                    id={category.id}
+                    value={category.id}
+                    checked={checkedCategoryId === category.id}
+                    onChange={(e) => {
+                      setCheckedCategoryId(e.target.checked ? category.id : "");
+                    }}
+                  />
+                  <label className={css.categoryLabel} htmlFor={category.id}>
+                    {category.name}
+                  </label>
+                </li>
+              ))}
+            </ul>
+            <SearchLastRequests
+              handleSearchQueryChange={handleSearchQueryChange}
+            />
+          </div>
+        </div>
       )}
     </form>
   );

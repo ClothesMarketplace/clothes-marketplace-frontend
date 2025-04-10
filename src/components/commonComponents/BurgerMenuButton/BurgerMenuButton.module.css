@@ -2,10 +2,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
+  background-color: var(--main-black);
   transition: all 0.3s ease-in-out;
+  padding: 10px;
+  border-radius: 50%;
+
+  .menuIcon {
+    fill: var(--white);
+    transition: all 0.3s ease-in-out;
+  }
 
   &:hover {
-    scale: 1.1;
+    box-shadow: 2px 2px 3px -2px var(--deep-sea-exploration);
+    background-color: var(--dark-royalty);
   }
 }

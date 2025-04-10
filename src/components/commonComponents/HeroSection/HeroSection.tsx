@@ -19,7 +19,6 @@ const HeroSection: React.FC = () => {
           searchQuery={searchQuery}
           handleSearchQueryChange={handleSearchQueryChange}
         />
-        <SearchLastRequests handleSearchQueryChange={handleSearchQueryChange} />
       </SearchWrapper>
     </section>
   );

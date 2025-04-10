@@ -1,113 +1,127 @@
 .searchForm {
   width: 100%;
-  min-height: 56px;
   position: relative;
+  border-top: none;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
 
   .searchContainer {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: -10px;
+    width: calc(100% + 20px);
+    border-radius: 100px;
+    background-color: var(--blur-bg);
+    padding: 10px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
     .searchInput {
       width: 100%;
-      padding: 16px;
+      padding: 20px;
       border-radius: 100px;
-      border: 1px solid var(--main-black);
       outline: none;
-      z-index: 1;
-
-      &:active,
-      &:focus {
-        border-color: var(--dark-royalty);
-        box-shadow: 1px 1px 4px var(--dark-royalty);
-      }
+      border: none;
+      z-index: 3;
+      font-size: 14px;
+      font-weight: 600;
 
       &:active + .searchBtn,
       &:focus + .searchBtn {
-        background-color: var(--dark-royalty);
-        box-shadow: 1px 1px 4px var(--dark-royalty);
+        background-color: var(--deep-sea-exploration);
       }
     }
 
     .searchBtn {
       position: absolute;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
+      border-radius: 100px;
+      width: max-content;
       z-index: 2;
       right: 12px;
       top: 50%;
       translate: 0 -50%;
+      padding: 10px 20px;
+      background-color: var(--main-black);
+      transition: all 0.3s ease-in-out;
       display: flex;
       align-items: center;
-      justify-content: center;
-      background-color: var(--gray-primary);
-      transition: all 0.3s ease-in-out;
-
-      .searchIcon {
-        transition: scale 0.3s ease-in-out;
-      }
+      gap: 10px;
 
       &:hover {
-        background-color: var(--dark-royalty);
-        .searchIcon {
-          scale: 1.1;
-        }
+        background-color: var(--deep-sea-exploration);
+      }
+
+      .searchBtnText {
+        color: var(--white);
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .searchIcon {
+        fill: var(--white);
       }
     }
   }
 
-  .categoriesList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    padding: 16px 10px;
-    background-color: var(--white);
-    border-bottom-right-radius: 12px;
-    border-bottom-left-radius: 12px;
+  .categoriesContainer {
+    background-color: transparent;
+    padding-top: 60px;
 
-    .categoryItem {
-      width: max-content;
-      border: 1px solid var(--main-black);
-      border-radius: 100px;
+    .categoriesWrapper {
+      padding: 36px 10px 16px;
+      background-color: var(--white);
+      border-bottom-right-radius: 12px;
+      border-bottom-left-radius: 12px;
 
-      &:hover {
-        border-color: var(--dark-royalty);
-        box-shadow: 1px 1px 4px var(--dark-royalty);
-
-        .categoryLabel {
-          &::before {
-            background-color: var(--dark-royalty);
-            box-shadow: 1px 1px 4px var(--dark-royalty);
-          }
-        }
-      }
-
-      .categoryCheckbox:checked + .categoryLabel {
-        color: var(--dark-royalty);
-
-        &::before {
-          background-color: var(--dark-royalty);
-          box-shadow: 1px 1px 4px 1px var(--dark-royalty);
-        }
-      }
-
-      .categoryLabel {
+      .categoriesList {
         display: flex;
-        align-items: center;
-        gap: 4px;
-        font-size: 12px;
-        font-weight: 500;
-        cursor: pointer;
-        padding: 6px;
+        flex-wrap: wrap;
+        gap: 6px;
 
-        &::before {
-          content: "";
-          display: block;
-          width: 4px;
-          height: 4px;
-          border-radius: 50%;
-          background-color: var(--main-black);
+        .categoryItem {
+          width: max-content;
+          border: 1px solid var(--main-black);
+          border-radius: 100px;
+
+          &:hover {
+            border-color: var(--dark-royalty);
+            box-shadow: 2px 2px 3px -2px var(--deep-sea-exploration);
+
+            .categoryLabel {
+              &::before {
+                background-color: var(--dark-royalty);
+                box-shadow: 2px 2px 3px -2px var(--deep-sea-exploration);
+              }
+            }
+          }
+
+          .categoryCheckbox:checked + .categoryLabel {
+            color: var(--dark-royalty);
+
+            &::before {
+              background-color: var(--dark-royalty);
+              box-shadow: 2px 2px 3px -2px var(--deep-sea-exploration);
+            }
+          }
+
+          .categoryLabel {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 6px;
+
+            &::before {
+              content: "";
+              display: block;
+              width: 4px;
+              height: 4px;
+              border-radius: 50%;
+              background-color: var(--main-black);
+            }
+          }
         }
       }
     }

@@ -13,4 +13,6 @@
   --text-secondary: rgb(235, 235, 240);
   --white-dirty: rgb(235, 235, 237);
   --white-secondary: rgb(243, 244, 246);
+  --cream-bg: rgb(242, 242, 242);
+  --blur-bg: rgba(213, 213, 213, 0.4);
 }

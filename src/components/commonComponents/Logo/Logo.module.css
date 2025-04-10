@@ -1,0 +1,17 @@
+.logoLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 1px 1px 5px var(--deep-sea-exploration);
+  }
+
+  @media screen and (max-width: 350px) {
+    .logoIcon {
+      width: 48px;
+      height: 32px;
+    }
+  }
+}

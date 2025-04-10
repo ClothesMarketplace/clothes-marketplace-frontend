@@ -1,4 +1,21 @@
 .menu {
+  background: linear-gradient(to bottom, #f1f0f0, #ffffff 3%);
   position: relative;
   padding: 12px;
+
+  .menuCategories,
+  .menuBrands,
+  .menuLanguage {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-left: 10px;
+  }
+
+  .menuList {
+    list-style: disc;
+    padding: 10px;
+    margin: 0;
+    margin-left: 10px;
+  }
 }

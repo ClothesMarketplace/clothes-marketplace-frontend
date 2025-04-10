@@ -1,0 +1,85 @@
+.searchLastRequests {
+  padding: 0 10px;
+
+  .searchLastRequestsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    .title {
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .removeAllBtn {
+      background-color: transparent;
+      font-size: 12px;
+      font-weight: 400;
+      border-radius: 4px;
+      padding: 0 4px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: var(--gray-primary);
+        color: var(--dark-royalty);
+      }
+    }
+  }
+
+  .lastRequestsList {
+    .lastRequestsItem {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      &:has(+ .lastRequestsItem) {
+        margin-bottom: 10px;
+      }
+
+      .request {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        cursor: pointer;
+
+        .clockIcon {
+          pointer-events: none;
+          fill: var(--gray-primary);
+        }
+
+        .requestText {
+          font-size: 14px;
+          transition: all 0.3s ease-in-out;
+        }
+
+        &:hover {
+          .requestText {
+            color: var(--dark-royalty);
+          }
+
+          .clockIcon {
+            fill: var(--dark-royalty);
+          }
+        }
+      }
+    }
+
+    .deleteBtn {
+      width: 16px;
+      height: 16px;
+      align-content: center;
+      background-color: transparent;
+
+      .removeRequestIcon {
+        display: block;
+        stroke: var(--gray-primary);
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          scale: 1.2;
+        }
+      }
+    }
+  }
+}

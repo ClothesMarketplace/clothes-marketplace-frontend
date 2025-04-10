@@ -8,6 +8,7 @@ import Loader from "./components/commonComponents/Loader/Loader";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const FavoritesPage = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
+const ProductsPage = lazy(() => import("./pages/ProductsPage/ProductsPage"));
 const ProductPage = lazy(() => import("./pages/ProductPage/ProductPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const RegistrationPage = lazy(
@@ -24,6 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
+          <Route path="/products" element={<ProductsPage />} />
           <Route
             path="/favorites"
             element={

@@ -1,5 +1,7 @@
 .authButtonsGroup {
   width: 100%;
+  max-width: 296px;
+  margin: 10px 0 0 10px;
   border: 1px solid var(--main-black);
   display: flex;
   justify-content: center;
@@ -8,6 +10,8 @@
 
   .login,
   .registration {
+    width: 100%;
+    text-align: center;
     position: relative;
     font-size: 14px;
     padding: 0 12px;
@@ -21,7 +25,7 @@
       bottom: 0;
       left: 12px;
       right: 12px;
-      background-color: var(--main-black);
+      background-color: var(--dark-royalty);
       height: 1px;
       translate: -100%;
       opacity: 0;
@@ -29,9 +33,13 @@
       transition: translate 0.3s ease-in-out 0.1s, opacity 0.4s ease-in-out 0.1s;
     }
 
-    &:hover::after {
-      translate: 0;
-      opacity: 1;
+    &:hover {
+      color: var(--dark-royalty);
+
+      &::after {
+        translate: 0;
+        opacity: 1;
+      }
     }
   }
 

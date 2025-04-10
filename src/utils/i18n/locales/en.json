@@ -39,5 +39,10 @@
   },
   "nav": {
     "sellNow": "Sell now"
+  },
+  "menu": {
+    "categories": "Categories",
+    "famousBrands": "Famous brands",
+    "language": "Language"
   }
 }

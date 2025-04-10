@@ -77,30 +77,33 @@
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
+        margin-bottom: 14px;
 
         .categoryItem {
           width: max-content;
           border: 1px solid var(--main-black);
           border-radius: 100px;
+          overflow: hidden;
 
           &:hover {
-            border-color: var(--dark-royalty);
-            box-shadow: 2px 2px 3px -2px var(--deep-sea-exploration);
+            background-color: var(--main-black);
 
             .categoryLabel {
+              color: var(--yellow);
               &::before {
-                background-color: var(--dark-royalty);
-                box-shadow: 2px 2px 3px -2px var(--deep-sea-exploration);
+                background-color: var(--yellow);
+                box-shadow: 0 0 1px var(--yellow);
               }
             }
           }
 
           .categoryCheckbox:checked + .categoryLabel {
-            color: var(--dark-royalty);
+            color: var(--yellow);
+            background-color: var(--main-black);
 
             &::before {
-              background-color: var(--dark-royalty);
-              box-shadow: 2px 2px 3px -2px var(--deep-sea-exploration);
+              background-color: var(--yellow);
+              box-shadow: 0 0 1px var(--yellow);
             }
           }
 
@@ -108,7 +111,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 500;
             cursor: pointer;
             padding: 6px;

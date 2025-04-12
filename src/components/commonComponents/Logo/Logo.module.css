@@ -8,7 +8,7 @@
     box-shadow: 2px 2px 3px -2px var(--deep-sea-exploration);
   }
 
-  @media screen and (max-width: 350px) {
+  @media screen and (max-width: 374px) {
     .logoIcon {
       width: 48px;
       height: 32px;

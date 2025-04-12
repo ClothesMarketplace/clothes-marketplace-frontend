@@ -6,7 +6,7 @@ import Logo from "../Logo/Logo";
 
 const Header: React.FC = () => {
   return (
-    <header className={clsx(css.header, "container")}>
+    <header className={clsx("container", css.header)}>
       <Logo />
       <Navigation />
     </header>

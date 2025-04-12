@@ -1,7 +1,6 @@
 .heroSection {
   position: relative;
   width: 100%;
-  min-height: 88vh;
-  height: max-content;
+  min-height: max-content;
   margin-bottom: 24px;
 }

@@ -1,5 +1,4 @@
-import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { selectIsMenuOpen } from "../../redux/additional/slice";
+import { useAppDispatch } from "../../redux/store";
 import Menu from "../../components/commonComponents/Menu/Menu";
 import HeroSection from "../../components/commonComponents/HeroSection/HeroSection";
 import RecommendedProductsSection from "../../components/products/RecommendedProductsSection/RecommendedProductsSection";
@@ -17,14 +16,9 @@ const HomePage = () => {
     dispatch(fetchProducts(null));
   }, [dispatch]);
 
-  const isMenuOpen = useAppSelector(selectIsMenuOpen);
-
-  return isMenuOpen ? (
+  return (
     <div className="container">
       <Menu />
-    </div>
-  ) : (
-    <div className="container">
       <HeroSection />
       <RecommendedProductsSection />
     </div>

@@ -1,7 +1,11 @@
 .menu {
   background: linear-gradient(to bottom, #f1f0f0, #ffffff 3%);
-  position: relative;
   padding: 12px;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  z-index: 4;
+  min-height: 100vh;
+  height: max-content;
 
   .menuCategories,
   .menuBrands,
@@ -18,4 +22,17 @@
     margin: 0;
     margin-left: 10px;
   }
+}
+
+.closed {
+  opacity: 0;
+  pointer-events: none;
+  translate: 100% 0;
+}
+
+.open {
+  inset: 0;
+  translate: 0 0;
+  opacity: 1;
+  pointer-events: auto;
 }

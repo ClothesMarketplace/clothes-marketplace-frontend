@@ -18,7 +18,7 @@
 
     .searchInput {
       width: 100%;
-      padding: 20px;
+      padding: 20px 140px 20px 20px;
       border-radius: 100px;
       outline: none;
       border: none;
@@ -37,7 +37,7 @@
       border-radius: 100px;
       width: max-content;
       z-index: 2;
-      right: 12px;
+      right: 20px;
       top: 50%;
       translate: 0 -50%;
       padding: 10px 20px;
@@ -59,6 +59,19 @@
 
       .searchIcon {
         fill: var(--white);
+      }
+    }
+
+    @media screen and (max-width: 375px) {
+      .searchBtn {
+        padding: 10px;
+
+        .searchBtnText {
+          display: none;
+        }
+      }
+      .searchInput {
+        padding-right: 64px;
       }
     }
   }

@@ -1,5 +1,11 @@
 .header {
   display: flex;
   align-items: center;
+  gap: 8px;
   padding: 12px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 999;
 }

@@ -32,7 +32,9 @@ const SearchForm: React.FC<SearchFormProps> = ({
       )
     );
     navigate("/products");
-    dispatch(addLastSearchRequest(searchQuery.trim()));
+    if (searchQuery.trim()) {
+      dispatch(addLastSearchRequest(searchQuery.trim()));
+    }
     handleSearchQueryChange("");
     setCheckedCategoryId("");
   };

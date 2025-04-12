@@ -1,22 +1,18 @@
 import { useTranslation } from "react-i18next";
-import { closeMenu } from "../../../redux/additional/slice";
-import { useAppDispatch } from "../../../redux/store";
+import { useAppSelector } from "../../../redux/store";
 import AuthButtonsGroup from "../../auth/AuthButtonsGroup/AuthButtonsGroup";
-import CloseButton from "../CloseButton/CloseButton";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import css from "./Menu.module.css";
+import { selectIsMenuOpen } from "../../../redux/additional/slice";
+import clsx from "clsx";
 
 const Menu: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const handleCloseMenu = () => {
-    dispatch(closeMenu());
-  };
+  const isMenuOpen = useAppSelector(selectIsMenuOpen);
 
   const { t } = useTranslation();
 
   return (
-    <div className={css.menu}>
-      <CloseButton descr="close menu" externalHandleClick={handleCloseMenu} />
+    <div className={clsx(css.menu, isMenuOpen ? css.open : css.closed)}>
       <AuthButtonsGroup />
       <h2 className={css.menuCategories}>{t("menu.categories")}</h2>
       {/* <CategoriesList /> */}

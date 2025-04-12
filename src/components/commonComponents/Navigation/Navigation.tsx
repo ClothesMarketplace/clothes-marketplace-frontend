@@ -3,9 +3,13 @@ import css from "./Navigation.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
 import { useTranslation } from "react-i18next";
 import BurgerMenuButton from "../BurgerMenuButton/BurgerMenuButton";
+import { useAppSelector } from "../../../redux/store";
+import { selectIsMenuOpen } from "../../../redux/additional/slice";
+import CloseMenuButton from "../CloseMenuButton/CloseMenuButton";
 
 const Navigation: React.FC = () => {
   const { t } = useTranslation();
+  const isMenuOpen = useAppSelector(selectIsMenuOpen);
 
   return (
     <nav className={css.nav}>
@@ -35,7 +39,7 @@ const Navigation: React.FC = () => {
           </NavLink>
         </li>
         <li className={css.menu}>
-          <BurgerMenuButton />
+          {isMenuOpen ? <CloseMenuButton /> : <BurgerMenuButton />}
         </li>
       </ul>
     </nav>

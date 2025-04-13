@@ -1,5 +1,4 @@
 import { useAppDispatch } from "../../redux/store";
-import Menu from "../../components/commonComponents/Menu/Menu";
 import HeroSection from "../../components/commonComponents/HeroSection/HeroSection";
 import RecommendedProductsSection from "../../components/products/RecommendedProductsSection/RecommendedProductsSection";
 import { useEffect } from "react";
@@ -18,7 +17,6 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <Menu />
       <HeroSection />
       <RecommendedProductsSection />
     </div>

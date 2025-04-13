@@ -17,6 +17,7 @@ const RegistrationPage = lazy(
 const SaleAdvertPage = lazy(
   () => import("./pages/SaleAdvertPage/SaleAdvertPage")
 );
+const CabinetPage = lazy(() => import("./pages/CabinetPage/CabinetPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/cabinet" element={<CabinetPage />} />
           <Route
             path="/favorites"
             element={
@@ -60,6 +62,7 @@ function App() {
             </RestrictedRoute>
           }
         />
+
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>

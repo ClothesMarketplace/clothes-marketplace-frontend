@@ -3,10 +3,13 @@ import { useAppDispatch } from "../../../redux/store";
 import { closeMenu } from "../../../redux/additional/slice";
 import css from "./CloseMenuButton.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
+import { useNavigate } from "react-router-dom";
 
 const CloseMenuButton: React.FC = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const handleClick = (): void => {
+    navigate(-1);
     dispatch(closeMenu());
   };
   return (

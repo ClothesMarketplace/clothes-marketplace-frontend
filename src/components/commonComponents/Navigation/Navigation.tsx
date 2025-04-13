@@ -3,9 +3,13 @@ import css from "./Navigation.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
 import { useTranslation } from "react-i18next";
 import BurgerMenuButton from "../BurgerMenuButton/BurgerMenuButton";
+import { useAppSelector } from "../../../redux/store";
+import { selectIsMenuOpen } from "../../../redux/additional/slice";
+import CloseMenuButton from "../CloseMenuButton/CloseMenuButton";
 
 const Navigation: React.FC = () => {
   const { t } = useTranslation();
+  const isMenuOpen = useAppSelector(selectIsMenuOpen);
 
   return (
     <nav className={css.nav}>
@@ -20,22 +24,22 @@ const Navigation: React.FC = () => {
             </div>
           </NavLink>
         </li>
-        <li className={css.favorites}>
-          <NavLink className={css.favoritesLink} to="/favorites">
-            <svg width="24" height="24">
-              <use href={`${sprite}#hart`}></use>
-            </svg>
-          </NavLink>
-        </li>
         <li className={css.notifications}>
           <NavLink className={css.notificationsLink} to="/notifications">
-            <svg width="24" height="24">
+            <svg className={css.iconBell} width="24" height="24">
               <use href={`${sprite}#bell`}></use>
             </svg>
           </NavLink>
         </li>
+        <li className={css.favorites}>
+          <NavLink className={css.favoritesLink} to="/favorites">
+            <svg className={css.iconHart} width="24" height="24">
+              <use href={`${sprite}#hart`}></use>
+            </svg>
+          </NavLink>
+        </li>
         <li className={css.menu}>
-          <BurgerMenuButton />
+          {isMenuOpen ? <CloseMenuButton /> : <BurgerMenuButton />}
         </li>
       </ul>
     </nav>

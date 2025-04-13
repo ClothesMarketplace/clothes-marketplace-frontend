@@ -4,7 +4,6 @@
   .navList {
     display: flex;
     justify-content: space-between;
-    margin-left: 16px;
 
     .advert {
       max-width: 160px;
@@ -16,11 +15,20 @@
         gap: 8px;
         padding: 10px;
         border-radius: 100px;
-        background-color: var(--gray-secondary);
+        background-color: var(--dark-royalty);
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          box-shadow: 2px 2px 3px -2px var(--deep-sea-exploration);
+          background-color: var(--deep-sea-exploration);
+        }
 
         .advertText {
-          font-size: 14px;
+          font-size: 12px;
           font-weight: 600;
+          color: var(--white);
+          text-wrap: nowrap;
+          text-overflow: ellipsis;
         }
 
         .advertIconWrapper {
@@ -38,15 +46,9 @@
         }
       }
 
-      @media screen and (max-width: 350px) {
+      @media screen and (max-width: 374px) {
         .advertLink {
-          padding: 4px 6px;
-
-          .advertText {
-            font-size: 12px;
-            text-wrap: nowrap;
-            text-overflow: ellipsis;
-          }
+          padding: 4px;
         }
       }
     }
@@ -61,7 +63,46 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: transparent;
+        background-color: var(--cream-bg);
+        padding: 10px;
+        border-radius: 50%;
+        transition: all 0.3s ease-in-out;
+
+        .iconBell {
+          fill: var(--gray-primary);
+          transition: all 0.4s ease-in-out;
+        }
+
+        .iconHart {
+          stroke: var(--gray-primary);
+          fill: transparent;
+          transition: all 0.4s ease-in-out;
+        }
+
+        @media screen and (max-width: 374px) {
+          .iconBell,
+          .iconHart {
+            width: 16px;
+            height: 16px;
+          }
+        }
+
+        &:hover {
+          box-shadow: 2px 2px 3px -2px var(--deep-sea-exploration);
+          .iconBell {
+            fill: var(--dark-royalty);
+          }
+          .iconHart {
+            stroke: var(--dark-royalty);
+          }
+        }
+      }
+
+      @media screen and (max-width: 374px) {
+        .favoritesLink,
+        .notificationsLink {
+          padding: 6px;
+        }
       }
     }
   }

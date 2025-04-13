@@ -3,6 +3,7 @@ export interface Product {
   name: string;
   dollarPrice: number;
   urlMainImage: null | string;
+  description: string;
 }
 
 export interface ProductsResponse {

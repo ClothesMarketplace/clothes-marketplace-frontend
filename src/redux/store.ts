@@ -14,6 +14,7 @@ import { authReducer } from "./auth/slice";
 import { useDispatch, useSelector } from "react-redux";
 import { categoriesReducer } from "./categories/slice";
 import { productsReducer } from "./products/slice";
+import { favoritesReducer } from './favorites/slice';
 
 import { PersistedAuthState } from "./auth/types";
 import {
@@ -45,6 +46,7 @@ export const store = configureStore({
     categories: categoriesReducer,
     products: productsReducer,
     aditionalStates: persistedLastSearchRequestReducer,
+    favorites: favoritesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -1,21 +1,56 @@
 .menu {
   background: linear-gradient(to bottom, #f1f0f0, #ffffff 3%);
-  position: relative;
   padding: 12px;
+  position: fixed;
+  top: 68px;
+  left: 50%;
+  width: 100%;
+  max-width: 400px;
+  z-index: 4;
+  min-height: 100vh;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+  animation: bounce 0.5s ease-in-out forwards;
+  overflow-y: scroll;
 
-  .menuCategories,
-  .menuBrands,
-  .menuLanguage {
-    font-size: 16px;
-    font-weight: 600;
-    margin-top: 16px;
-    margin-left: 10px;
-  }
+  .menuContent {
+    padding-bottom: 80px;
 
-  .menuList {
-    list-style: disc;
-    padding: 10px;
-    margin: 0;
-    margin-left: 10px;
+    .menuCategories,
+    .menuBrands,
+    .menuLanguage {
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 16px;
+      margin-left: 10px;
+    }
+
+    .menuList {
+      list-style: disc;
+      padding: 10px;
+      margin: 0;
+      margin-left: 10px;
+    }
   }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.closed {
+  opacity: 0;
+  pointer-events: none;
+  translate: 100% 0;
+}
+
+.open {
+  translate: 0 0;
+  opacity: 1;
+  pointer-events: auto;
 }

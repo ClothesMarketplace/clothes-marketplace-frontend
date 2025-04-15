@@ -4,8 +4,12 @@
   justify-content: center;
   transition: all 0.3s ease-in-out;
 
-  &:hover {
-    box-shadow: 2px 2px 3px -2px var(--deep-sea-exploration);
+  .logoIcon {
+    fill: var(--dark-royalty);
+
+    &:hover {
+      fill: var(--deep-sea-exploration);
+    }
   }
 
   @media screen and (max-width: 374px) {
@@ -14,4 +18,16 @@
       height: 32px;
     }
   }
+
+  .logoForFooter {
+    fill: var(--white);
+
+    &:hover {
+      fill: var(--white-dirty);
+    }
+  }
+}
+
+.footerGrid {
+  grid-area: a;
 }

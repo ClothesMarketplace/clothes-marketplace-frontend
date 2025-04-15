@@ -1,12 +1,14 @@
 .searchForm {
   width: 100%;
+  min-height: 80px;
   position: relative;
   border-top: none;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
 
   .searchContainer {
-    position: fixed;
+    position: absolute;
+    z-index: 6;
     top: 0;
     left: -10px;
     width: calc(100% + 20px);
@@ -77,8 +79,14 @@
   }
 
   .categoriesContainer {
+    position: absolute;
+    z-index: 5;
+    translate: 0 -100%;
+    opacity: 0;
+    pointer-events: none;
     background-color: transparent;
     padding-top: 60px;
+    transition: all 0.3 ease-in-out;
 
     .categoriesWrapper {
       padding: 36px 10px 16px;
@@ -141,5 +149,11 @@
         }
       }
     }
+  }
+
+  .open {
+    translate: 0 0;
+    opacity: 1;
+    pointer-events: all;
   }
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Brands from "../Brands/Brands";
-import SearchForm from "../SearchForm/SearchForm";
-import SearchWrapper from "../SearchWrapper/SearchWrapper";
+import SearchForm from "../../search/SearchForm/SearchForm";
+import SearchWrapper from "../../search/SearchWrapper/SearchWrapper";
 import css from "./HeroSection.module.css";
 
 const HeroSection: React.FC = () => {

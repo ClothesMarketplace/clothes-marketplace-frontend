@@ -1,13 +1,31 @@
 .footer {
-  padding: 18px 0;
-  background-color: var(--gray-primary);
-  /* position: absolute; */
+  padding: 18px 10px;
+  background-color: var(--dark-royalty);
   bottom: 0;
   width: 100%;
-}
 
-.wrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  .wrapper {
+    display: grid;
+    gap: 32px;
+    grid-template-areas:
+      "a b"
+      "c c"
+      "d d";
+
+    :is(h3, li, p) {
+      color: var(--white);
+    }
+
+    .list {
+      grid-area: b;
+    }
+
+    .formWrap {
+      grid-area: c;
+    }
+
+    .copyright {
+      grid-area: d;
+    }
+  }
 }

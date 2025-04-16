@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import css from "./SearchForm.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
@@ -21,6 +21,8 @@ const SearchForm: React.FC<SearchFormProps> = ({
   const categories = useAppSelector(selectCategories);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const [popupOpen, setPopupOpen] = useState<boolean>(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   const [checkedCategoryId, setCheckedCategoryId] = useState<string>("");
 
@@ -43,8 +45,28 @@ const SearchForm: React.FC<SearchFormProps> = ({
     handleSearchQueryChange(event.target.value);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent): void => {
+      if (formRef.current && !formRef.current.contains(event.target as Node)) {
+        setPopupOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [formRef]);
+
   return (
-    <form className={css.searchForm} onSubmit={handleSubmit}>
+    <form
+      ref={formRef}
+      className={css.searchForm}
+      onSubmit={handleSubmit}
+      onClick={() => {
+        setPopupOpen(true);
+      }}
+    >
       <div className={css.searchContainer}>
         <input
           className={css.searchInput}
@@ -61,7 +83,7 @@ const SearchForm: React.FC<SearchFormProps> = ({
         </button>
       </div>
       {categories && Array.isArray(categories) && (
-        <div className={css.categoriesContainer}>
+        <div className={clsx(css.categoriesContainer, popupOpen && css.open)}>
           <div className={css.categoriesWrapper}>
             <ul className={css.categoriesList}>
               {categories.map((category) => (

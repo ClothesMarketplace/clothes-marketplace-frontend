@@ -22,8 +22,6 @@ export const getProductsQuery: GetProductsQueryType = (query) => {
   let params = `products?PageNumber=${PageNumber}&PageSize=${PageSize}`;
 
   for (const property in query) {
-    console.log(`${property}:${query[property as keyof typeof query]}`);
-
     if (
       property !== "PageNumber" &&
       property !== "PageSize" &&
@@ -34,8 +32,6 @@ export const getProductsQuery: GetProductsQueryType = (query) => {
       );
     }
   }
-
-  console.log(params);
 
   return params;
 };

@@ -6,7 +6,6 @@
     justify-content: space-between;
 
     .advert {
-      max-width: 160px;
       align-content: center;
 
       .advertLink {
@@ -104,6 +103,13 @@
           padding: 6px;
         }
       }
+    }
+  }
+
+  @media screen and (min-width: 420px) {
+    .navList {
+      justify-content: flex-end;
+      gap: 20px;
     }
   }
 }

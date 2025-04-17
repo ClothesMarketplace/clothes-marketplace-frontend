@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Layout from "./Layout/Layout";
 import PrivateRoute from "./components/auth/PrivateRoute/PrivateRoute";
 import RestrictedRoute from "./components/auth/RestrictedRoute/RestrictedRoute";

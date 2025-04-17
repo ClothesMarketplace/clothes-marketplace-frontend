@@ -1,12 +1,12 @@
 .categoriesContainer {
   position: absolute;
   z-index: 5;
-  translate: 0 -100%;
+  translate: 0 -80%;
   opacity: 0;
   pointer-events: none;
   background-color: transparent;
   padding-top: 60px;
-  transition: all 0.3 ease-in-out;
+  transition: translate 0.4s ease-in-out, opacity 0.1s ease-in-out;
 
   .categoriesWrapper {
     padding: 36px 10px 16px;
@@ -75,4 +75,5 @@
   translate: 0 0;
   opacity: 1;
   pointer-events: all;
+  transition: translate 0.1s ease-in-out, opacity 0.4s ease-in-out;
 }

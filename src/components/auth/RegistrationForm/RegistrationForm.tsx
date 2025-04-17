@@ -2,7 +2,7 @@ import { Form, Formik, FormikHelpers } from "formik";
 import { register } from "../../../redux/auth/operations";
 import { useAppDispatch } from "../../../redux/store";
 import css from "./RegistrationForm.module.css";
-import Button from "../../commonComponents/Button/Button";
+import Button from "../../buttons/Button/Button";
 import FormItem from "../FormItem/FormItem";
 import { registerSchema } from "../../../utils/yup/authSchema";
 import { useTranslation } from "react-i18next";

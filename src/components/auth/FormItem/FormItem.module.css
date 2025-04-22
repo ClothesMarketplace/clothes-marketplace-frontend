@@ -33,6 +33,8 @@
 
     .errorMsg {
       position: absolute;
+      pointer-events: none;
+      z-index: 7;
       left: 28px;
       bottom: 0;
       translate: 0 100%;

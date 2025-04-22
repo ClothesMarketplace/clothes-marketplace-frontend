@@ -14,14 +14,13 @@ const clearAuthHeader = () => {
 };
 
 export const register = createAsyncThunk<AuthResponse, RegisterUser>(
-  "auth/registration",
+  "auth/register",
   async (credentials: RegisterUser, thunkAPI) => {
     try {
-      const res = await axios.post<AuthResponse>(
-        "Auth/Registration",
-        credentials
-      );
-      setAuthHeader(res.data.token);
+      const res = await axios.post<AuthResponse>("auth/register", credentials);
+      if (res.data?.token) {
+        setAuthHeader(res.data.token);
+      }
       return res.data;
     } catch (error: any) {
       if (axios.isAxiosError(error)) {

@@ -2,7 +2,9 @@
   "registration": {
     "title": "Join and sell your favorite clothes without commissions",
     "form": {
-      "name": "Name",
+      "userName": "User name",
+      "name": "First name",
+      "lastName": "Last name",
       "email": "Email",
       "password": "Password",
       "confirmPassword": "Confirm password",
@@ -27,7 +29,7 @@
     "nameIsTooShort": "Name is too short",
     "nameIsTooLong": "Name is too long",
     "emailMustBeValid": "Email must be valid",
-    "passwordMatch": "Enter 8-20 symbols, at least 1 capital letter and 1 digit.",
+    "passwordMatch": "Enter 12-20 characters, at least 1 capital letter, 1 digit and 1 non alphanumeric character.",
     "passwordIsTooShort": "Password is too short",
     "passwordIsTooLong": "Password is too long",
     "confirm": "Passwords must match"

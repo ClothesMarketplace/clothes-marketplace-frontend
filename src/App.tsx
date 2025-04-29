@@ -1,9 +1,11 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import PrivateRoute from "./components/auth/PrivateRoute/PrivateRoute";
 import RestrictedRoute from "./components/auth/RestrictedRoute/RestrictedRoute";
 import Loader from "./components/commonComponents/Loader/Loader";
+import { useAppDispatch } from "./redux/store";
+import { refreshUser } from "./redux/auth/operations";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const FavoritesPage = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
@@ -20,6 +22,12 @@ const CabinetPage = lazy(() => import("./pages/CabinetPage/CabinetPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <Suspense fallback={<Loader />}>
       <Routes>

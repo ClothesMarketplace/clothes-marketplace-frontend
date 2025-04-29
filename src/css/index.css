@@ -88,13 +88,18 @@ button {
   .container {
     max-width: 768px;
   }
+} */
+@media screen and (min-width: 1158px) {
+  .container {
+    max-width: 1158px;
+    /* padding: 67px 107px 54px; */
+  }
 }
 @media screen and (min-width: 1440px) {
   .container {
     max-width: 1440px;
-    padding: 67px 107px 54px;
   }
-} */
+}
 
 button {
   cursor: pointer;

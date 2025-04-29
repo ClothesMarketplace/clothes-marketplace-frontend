@@ -9,3 +9,9 @@
   translate: -50% 0;
   z-index: 999;
 }
+
+@media screen and (min-width: 1158px) {
+  .header {
+    padding: 24px 100px;
+  }
+}

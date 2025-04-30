@@ -2,14 +2,18 @@ import { NavLink } from "react-router-dom";
 import css from "./Navigation.module.css";
 import sprite from "../../../assets/icons/sprite.svg";
 import { useTranslation } from "react-i18next";
-import BurgerMenuButton from "../BurgerMenuButton/BurgerMenuButton";
+import BurgerMenuButton from "../../buttons/BurgerMenuButton/BurgerMenuButton";
 import { useAppSelector } from "../../../redux/store";
 import { selectIsMenuOpen } from "../../../redux/additional/slice";
-import CloseMenuButton from "../CloseMenuButton/CloseMenuButton";
+import CloseMenuButton from "../../buttons/CloseMenuButton/CloseMenuButton";
+import AuthButtonsGroup from "../../auth/AuthButtonsGroup/AuthButtonsGroup";
+import LanguageSelector from "../LanguageSelector/LanguageSelector";
+import { selectIsLoggedIn } from "../../../redux/auth/selectors";
 
 const Navigation: React.FC = () => {
   const { t } = useTranslation();
   const isMenuOpen = useAppSelector(selectIsMenuOpen);
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   return (
     <nav className={css.nav}>
@@ -37,6 +41,14 @@ const Navigation: React.FC = () => {
               <use href={`${sprite}#hart`}></use>
             </svg>
           </NavLink>
+        </li>
+        {!isLoggedIn && (
+          <li className={css.auth}>
+            <AuthButtonsGroup />
+          </li>
+        )}
+        <li className={css.language}>
+          <LanguageSelector />
         </li>
         <li className={css.menu}>
           {isMenuOpen ? <CloseMenuButton /> : <BurgerMenuButton />}

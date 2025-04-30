@@ -1,5 +1,6 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "./Carousel.css";
 import Slider from "react-slick";
 
 const Carousel: React.FC<{ children: React.ReactNode }> = ({

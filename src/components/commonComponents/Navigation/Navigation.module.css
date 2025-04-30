@@ -6,7 +6,6 @@
     justify-content: space-between;
 
     .advert {
-      max-width: 160px;
       align-content: center;
 
       .advertLink {
@@ -105,5 +104,39 @@
         }
       }
     }
+  }
+
+  @media screen and (min-width: 420px) {
+    .navList {
+      justify-content: flex-end;
+      gap: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: 1158px) {
+  .nav {
+    .navList {
+      gap: 8px;
+
+      .advert {
+        min-width: 180px;
+
+        .advertLink {
+          justify-content: space-between;
+          padding: 10px 20px;
+        }
+      }
+      .menu {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1157.99px) {
+  .auth,
+  .language {
+    display: none;
   }
 }

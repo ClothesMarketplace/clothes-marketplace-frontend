@@ -7,9 +7,8 @@ const initialState: AuthState = {
     id: "",
     userName: "",
     email: "",
-    role: "",
-    createdAt: "",
-    updatedAt: "",
+    firstName: "",
+    lastName: "",
   },
   token: "",
   isLoggedIn: false,
@@ -33,7 +32,7 @@ const authSlice = createSlice({
         (state, action: PayloadAction<AuthResponse>) => {
           state.isLoading = false;
           state.error = null;
-          state.user = action.payload.user;
+          // state.user = action.payload.user;
           state.token = action.payload.token;
           state.isLoggedIn = true;
         }
@@ -43,7 +42,7 @@ const authSlice = createSlice({
         (state, action: PayloadAction<AuthResponse>) => {
           state.isLoading = false;
           state.error = null;
-          state.user = action.payload.user;
+          // state.user = action.payload.user;
           state.token = action.payload.token;
           state.isLoggedIn = true;
         }

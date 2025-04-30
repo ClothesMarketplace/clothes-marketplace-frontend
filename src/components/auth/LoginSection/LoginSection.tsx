@@ -1,7 +1,7 @@
 import LoginForm from "../LoginForm/LoginForm";
 import css from "./LoginSection.module.css";
-import ButtonGoogle from "../../commonComponents/ButtonGoogle/ButtonGoogle";
-import CloseButton from "../../commonComponents/CloseButton/CloseButton";
+import ButtonGoogle from "../../buttons/ButtonGoogle/ButtonGoogle";
+import CloseButton from "../../buttons/CloseButton/CloseButton";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { selectError } from "../../../redux/auth/selectors";
 import { useEffect, useState } from "react";

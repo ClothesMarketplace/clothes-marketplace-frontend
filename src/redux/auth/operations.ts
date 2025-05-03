@@ -14,13 +14,10 @@ const clearAuthHeader = () => {
 };
 
 export const register = createAsyncThunk<AuthResponse, RegisterUser>(
-  "auth/registration",
+  "auth/register",
   async (credentials: RegisterUser, thunkAPI) => {
     try {
-      const res = await axios.post<AuthResponse>(
-        "Auth/Registration",
-        credentials
-      );
+      const res = await axios.post<AuthResponse>("auth/register", credentials);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error: any) {
@@ -43,7 +40,7 @@ export const logIn = createAsyncThunk<AuthResponse, LoginUser>(
   "auth/login",
   async (credentials: LoginUser, thunkAPI) => {
     try {
-      const res = await axios.post<AuthResponse>("Auth/Login", credentials);
+      const res = await axios.post<AuthResponse>("auth/login", credentials);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error: any) {

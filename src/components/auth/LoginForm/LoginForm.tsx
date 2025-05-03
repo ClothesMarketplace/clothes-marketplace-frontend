@@ -3,7 +3,7 @@ import css from "./LoginForm.module.css";
 import { useAppDispatch } from "../../../redux/store";
 import { logIn } from "../../../redux/auth/operations";
 import FormItem from "../FormItem/FormItem";
-import Button from "../../commonComponents/Button/Button";
+import Button from "../../buttons/Button/Button";
 import sprite from "../../../assets/icons/sprite.svg";
 import { useState } from "react";
 import clsx from "clsx";

@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { refreshUser } from "../../redux/auth/operations";
 import { getCategories } from "../../redux/categories/operations";
 import { fetchProducts } from "../../redux/products/operations";
+import { getProductsQuery } from "../../helpers/fetchQuery";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
@@ -12,7 +13,7 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(refreshUser());
     dispatch(getCategories());
-    dispatch(fetchProducts(null));
+    dispatch(fetchProducts(getProductsQuery({})));
   }, [dispatch]);
 
   return (

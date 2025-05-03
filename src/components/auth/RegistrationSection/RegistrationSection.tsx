@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import ButtonGoogle from "../../commonComponents/ButtonGoogle/ButtonGoogle";
-import CloseButton from "../../commonComponents/CloseButton/CloseButton";
+import ButtonGoogle from "../../buttons/ButtonGoogle/ButtonGoogle";
+import CloseButton from "../../buttons/CloseButton/CloseButton";
 import css from "./RegistrationSection.module.css";
 import { useTranslation } from "react-i18next";
 

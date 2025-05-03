@@ -1,9 +1,9 @@
 import { Formik, Form, FormikHelpers } from "formik";
 import css from "./ForgotPassword.module.css";
 import FormItem from "../FormItem/FormItem";
-import Button from "../../commonComponents/Button/Button";
+import Button from "../../buttons/Button/Button";
 import { recuverPasswordSchema } from "../../../utils/yup/authSchema";
-import CloseButton from "../../commonComponents/CloseButton/CloseButton";
+import CloseButton from "../../buttons/CloseButton/CloseButton";
 import { useTranslation } from "react-i18next";
 
 interface ForgotPasswordProps {

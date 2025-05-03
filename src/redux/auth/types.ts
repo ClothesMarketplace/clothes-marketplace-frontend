@@ -2,11 +2,10 @@ import { PersistPartial } from "redux-persist/es/persistReducer";
 
 export interface User {
   id: string;
-  userName: string;
   email: string;
-  role: string;
-  createdAt: string;
-  updatedAt: string;
+  userName: string;
+  firstName: string;
+  lastName: string;
 }
 export interface LoginUser {
   email: string;
@@ -14,9 +13,12 @@ export interface LoginUser {
 }
 
 export interface RegisterUser {
-  name: string;
+  userName: string;
   email: string;
   password: string;
+  confirmPassword: string;
+  firstName: string;
+  lastName: string;
 }
 
 export interface AuthState {
@@ -29,15 +31,11 @@ export interface AuthState {
 }
 
 export interface AuthResponse {
+  success: boolean;
   token: string;
-  user: {
-    id: string;
-    userName: string;
-    email: string;
-    role: string;
-    createdAt: string;
-    updatedAt: string;
-  };
+  refreshToken: string;
+  message: string;
+  errors: string[];
 }
 
 export type PersistedAuthState = AuthState & PersistPartial;

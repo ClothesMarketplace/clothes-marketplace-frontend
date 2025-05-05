@@ -5,18 +5,16 @@ import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import css from "./Menu.module.css";
 import { selectIsMenuOpen } from "../../../redux/additional/slice";
 import clsx from "clsx";
-import { selectIsLoggedIn } from "../../../redux/auth/selectors";
 
 const Menu: React.FC = () => {
   const isMenuOpen = useAppSelector(selectIsMenuOpen);
-  const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   const { t } = useTranslation();
 
   return (
     <div className={clsx(css.menu, isMenuOpen ? css.open : css.closed)}>
       <div className={css.menuContent}>
-        {!isLoggedIn && <AuthButtonsGroup />}
+        <AuthButtonsGroup />
         <h2 className={css.menuCategories}>{t("menu.categories")}</h2>
         {/* <CategoriesList /> */}
         <h2 className={css.menuBrands}>{t("menu.famousBrands")}</h2>

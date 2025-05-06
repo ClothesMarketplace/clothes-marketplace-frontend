@@ -1,4 +1,10 @@
 {
+  "logout": {
+    "title": "Logout",
+    "message": "Are you sure you want to log out?",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
   "registration": {
     "title": "Join and sell your favorite clothes without commissions",
     "form": {

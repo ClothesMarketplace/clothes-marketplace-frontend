@@ -1,13 +1,18 @@
 .authButtonsGroup {
   width: 100%;
+  min-width: 120px;
+  max-width: 400px;
+  margin: 0 auto;
   border: 1px solid var(--dark-royalty);
   display: flex;
   justify-content: center;
   padding: 12px;
   border-radius: 100px;
 
+  .logout,
   .login,
   .registration {
+    background-color: transparent;
     color: var(--dark-royalty);
     text-align: center;
     position: relative;

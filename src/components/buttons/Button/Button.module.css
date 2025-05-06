@@ -6,16 +6,42 @@
   font-size: 14px;
   font-weight: 600;
   border-radius: 50px;
-  padding: 16px;
+  padding: 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
   cursor: pointer;
   transition: all 300ms ease-in-out;
 
-  &:hover,
+  /* &:hover,
   &:focus {
     background-color: var(--dark-royalty);
-  }
+  } */
+}
+
+
+/* blue button */
+
+.primary {
+  background: var(--deep-sea-exploration);
+  color: var(--white);
+  border: none;
+}
+
+.primary:hover,
+.primary:focus {
+  background-color: var(--dark-royalty);
+}
+
+/* white button */
+
+.secondary {
+  background: transparent;
+  color: var(--deep-sea-exploration);
+  border: 1px solid var(--deep-sea-exploration);
+}
+
+.secondary:hover,
+.secondary:focus {
+  border: 3px solid var(--deep-sea-exploration);
 }

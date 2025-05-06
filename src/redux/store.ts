@@ -21,6 +21,7 @@ import {
   aditionalStatesReducer,
   PersistedAditionalState,
 } from "./additional/slice";
+import { dictionariesReducer } from "./dictionaries/slice";
 
 const authPersistConfig = {
   key: "auth",
@@ -47,6 +48,7 @@ export const store = configureStore({
     products: productsReducer,
     aditionalStates: persistedLastSearchRequestReducer,
     favorites: favoritesReducer,
+    dictionaries: dictionariesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

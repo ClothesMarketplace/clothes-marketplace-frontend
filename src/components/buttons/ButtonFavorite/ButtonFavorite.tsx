@@ -24,7 +24,7 @@ const ButtonFavorite = ({ productId }: ButtonFavoriteProps) => {
         fill={isFavorite ? "red" : "none"}
         stroke="currentColor"
       >
-        <use href={`${sprite}#heart`} />
+        <use href={`${sprite}#hart`} />
       </svg>
     </button>
   );

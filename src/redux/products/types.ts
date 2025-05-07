@@ -3,6 +3,17 @@ export interface Product {
   name: string;
   dollarPrice: number;
   urlMainImage: null | string;
+  description: string;
+  images: string[];
+  brandId: string;
+  categoryId: string;
+  forWhomId: string;
+  colorId: string;
+  productSizeId: string;
+  productConditionId: string;
+  views?: number;
+  interested?: number;
+  offers?: number;
 }
 
 export interface ProductsResponse {

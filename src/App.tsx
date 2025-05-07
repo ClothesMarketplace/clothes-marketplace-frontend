@@ -6,6 +6,7 @@ import RestrictedRoute from "./components/auth/RestrictedRoute/RestrictedRoute";
 import Loader from "./components/commonComponents/Loader/Loader";
 import { useAppDispatch } from "./redux/store";
 import { refreshUser } from "./redux/auth/operations";
+import { fetchDictionaries } from "./redux/dictionaries/operations";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const FavoritesPage = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
@@ -23,6 +24,10 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
   const dispatch = useAppDispatch();
+  
+  useEffect(() => {
+    dispatch(fetchDictionaries());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(refreshUser());

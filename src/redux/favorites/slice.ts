@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { FavoritesState } from "./types";
-import { fetchFavorites, toggleFavorite } from "./operations";
+import { fetchFavorites, addFavorite, removeFavorite } from "./operations";
 
 const initialState: FavoritesState = {
   items: [],
@@ -30,7 +30,13 @@ const favoritesSlice = createSlice({
         state.error = action.payload as string;
       })
       .addCase(
-        toggleFavorite.fulfilled,
+        addFavorite.fulfilled,
+        (state, action: PayloadAction<string[]>) => {
+          state.items = action.payload;
+        }
+      )
+      .addCase(
+        removeFavorite.fulfilled,
         (state, action: PayloadAction<string[]>) => {
           state.items = action.payload;
         }

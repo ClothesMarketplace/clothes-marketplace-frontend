@@ -1,5 +1,8 @@
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
-import { toggleFavorite } from "../../../redux/favorites/operations";
+import {
+  addFavorite,
+  removeFavorite,
+} from "../../../redux/favorites/operations";
 import { selectFavorites } from "../../../redux/favorites/selectors";
 import sprite from "../../../assets/icons/sprite.svg";
 
@@ -13,7 +16,11 @@ const ButtonFavorite = ({ productId }: ButtonFavoriteProps) => {
   const isFavorite = favorites.includes(productId);
 
   const handleToggle = () => {
-    dispatch(toggleFavorite(productId));
+    if (isFavorite) {
+      dispatch(removeFavorite(productId));
+    } else {
+      dispatch(addFavorite(productId));
+    }
   };
 
   return (

@@ -37,8 +37,7 @@
     overflow: hidden;
     margin-left: 12px;
 
-    &:hover,
-    &:focus-within {
+    &:hover {
       .active {
         translate: -44px 50%;
         opacity: 0;

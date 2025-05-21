@@ -20,9 +20,15 @@ const Footer = () => {
               🔥 Ти в темі? Лови тренди, знижки та персональні призи —
               підписуйся!
             </h3>
-            <form>
-              <input type="text" placeholder="Твій email " />
-              <button type="submit">Так, хочу! 😎</button>
+            <form className={css.form}>
+              <input
+                className={css.input}
+                type="text"
+                placeholder="Твій email "
+              />
+              <button className={css.btn} type="submit">
+                Так, хочу! 😎
+              </button>
             </form>
           </div>
           <p className={css.copyright}>

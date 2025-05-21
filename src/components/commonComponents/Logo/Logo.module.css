@@ -21,6 +21,8 @@
 
   .logoForFooter {
     fill: var(--white);
+    width: 112px;
+    height: 74px;
 
     &:hover {
       fill: var(--white-dirty);

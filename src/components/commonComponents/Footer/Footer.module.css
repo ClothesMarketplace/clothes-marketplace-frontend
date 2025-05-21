@@ -1,5 +1,5 @@
 .footer {
-  padding: 18px 10px;
+  padding: 18px 10px 0 10px;
   background-color: var(--dark-royalty);
   bottom: 0;
   width: 100%;
@@ -15,6 +15,14 @@
     :is(h3, li, p) {
       color: var(--white);
     }
+    :is(li) {
+      font-size: 14px;
+    }
+    :is(h3) {
+      font-weight: 400;
+      text-wrap: balance;
+      margin-bottom: 8px;
+    }
 
     .list {
       grid-area: b;
@@ -22,10 +30,66 @@
 
     .formWrap {
       grid-area: c;
+
+      .form {
+        border-radius: 100px;
+        background-color: var(--yellow);
+        max-width: 600px;
+
+        .input {
+          width: 60%;
+          border: none;
+          outline: none;
+          padding: 10px 20px;
+          border-radius: 100px;
+          background-color: var(--white);
+          color: var(--black);
+          font-size: 14px;
+          font-weight: 400;
+        }
+
+        .btn {
+          width: 40%;
+          padding: 4px 12px;
+          border-radius: 100px;
+          background-color: transparent;
+          color: var(--dark-royalty);
+          font-size: 14px;
+          font-weight: 600;
+          border: none;
+          cursor: pointer;
+          text-wrap: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        @media screen and (min-width: 472px) {
+          .input {
+            width: 70%;
+          }
+          .btn {
+            width: 30%;
+            padding: 10px 20px;
+          }
+        }
+      }
     }
 
     .copyright {
       grid-area: d;
+      text-align: center;
+      font-size: 14px;
+      color: var(--light-shade-of-blue);
+      padding-bottom: 28px;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: var(--dark-shade-of-blue);
+        box-shadow: 0 0 1px 0 var(--deep-sea-exploration);
+        margin-bottom: 28px;
+      }
     }
   }
 }

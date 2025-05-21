@@ -16,7 +16,7 @@ export const registerSchema = Yup.object().shape({
       /^(?=(.*[a-z]){1,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})(?=(.*[^a-zA-Z0-9]){1,}).*$/,
       t("authSchema.passwordMatch")
     )
-    .min(12, t("authSchema.passwordIsTooShort"))
+    .min(8, t("authSchema.passwordIsTooShort"))
     .max(20, t("authSchema.passwordIsTooLong"))
     .required(t("authSchema.required")),
   confirmPassword: Yup.string()

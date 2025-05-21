@@ -9,3 +9,4 @@ export const selectProductSizes = (state: RootState) =>
 export const selectCategories = (state: RootState) =>
   state.dictionaries.categories;
 export const selectForWhom = (state: RootState) => state.dictionaries.forWhom;
+

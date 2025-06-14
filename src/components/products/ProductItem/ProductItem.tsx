@@ -16,7 +16,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
       <Link to={`/product/${id}`} state={productLocation}>
         <img
           className={css.img}
-          src={urlMainImage || images.tShirt}
+          src={urlMainImage ?? images.tShirt}
           alt={name}
           loading="lazy"
         />

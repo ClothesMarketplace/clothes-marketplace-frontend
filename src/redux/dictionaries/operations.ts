@@ -1,53 +1,9 @@
-// import { createAsyncThunk } from "@reduxjs/toolkit";
-// import { AxiosResponse } from "axios";
-// import { DictionariesState } from "./types";
-// import instance from "../axiosInstance";
-
-// export const fetchDictionaries = createAsyncThunk<
-//   Partial<DictionariesState>,
-//   void,
-//   { rejectValue: string }
-// >("dictionaries/fetchAll", async (_, thunkAPI) => {
-//   try {
-//     const [
-//       brandsRes,
-//       colorsRes,
-//       productConditionsRes,
-//       productSizesRes,
-//       categoriesRes,
-//       forWhomRes,
-//     ] = await Promise.allSettled([
-//       instance.get("brands"),
-//       instance.get("colors"),
-//       instance.get("productConditions"),
-//       instance.get("productSizes"),
-//       instance.get("categories"),
-//       instance.get("forWhom"),
-//     ]);
-
-//     const getData = <T>(res: PromiseSettledResult<AxiosResponse<T>>) =>
-//       res.status === "fulfilled" ? res.value.data : undefined;
-
-//     return {
-//       brands: getData(brandsRes),
-//       colors: getData(colorsRes),
-//       productConditions: getData(productConditionsRes),
-//       productSizes: getData(productSizesRes),
-//       categories: getData(categoriesRes),
-//       forWhom: getData(forWhomRes),
-//     };
-    
-//   } catch (error) {
-//     console.error("❌ fetchDictionaries failed", error);
-//     return thunkAPI.rejectWithValue((error as Error).message);
-//   }
-// });
-
-
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "../axiosInstance";
-import { DictionariesState } from "./types";
+import { DictionariesState, DictionaryItem } from "./types";
 import localData from "./fallback.json";
+import { AppDispatch, RootState } from "../store";
+import { Product } from "../products/types";
 
 const endpointsMap = {
   brands: "brands",
@@ -59,6 +15,40 @@ const endpointsMap = {
 } as const;
 
 type DictionaryKey = keyof typeof endpointsMap;
+
+export const dictionaryAutoLoader =
+  (product: any) =>
+  async (dispatch: AppDispatch, getState: () => RootState) => {
+    const dictionaryKeys = {
+      brands: "brandId",
+      colors: "colorId",
+      productSizes: "productSizeId",
+      productConditions: "productConditionId",
+      categories: "categoryId",
+      forWhom: "forWhomId",
+    } as const;
+
+    const state = getState();
+
+    for (const [dictKey, idField] of Object.entries(dictionaryKeys)) {
+      const id = product[idField as keyof Product] as string | undefined;
+
+
+      if (!id) continue;
+
+      const dictArray = state.dictionaries[
+        dictKey as keyof typeof state.dictionaries
+      ] as {
+        id: string;
+      }[];
+
+      const exists = dictArray.some((entry) => entry.id === id);
+
+      if (!exists) {
+        await dispatch(fetchDictionaryItemById({ key: dictKey, id }));
+      }
+    }
+  };
 
 export const fetchDictionaries = createAsyncThunk<
   Partial<DictionariesState>,
@@ -78,14 +68,29 @@ export const fetchDictionaries = createAsyncThunk<
           try {
             const response = await instance.get(endpointsMap[key]);
             result[key] = response.data;
+            console.log(response.data);
           } catch (err) {
-            result[key] = []; // fallback to empty array if fetch fails
+            result[key] = [];
           }
         }
       })
     );
 
     return result;
+  } catch (error) {
+    return thunkAPI.rejectWithValue((error as Error).message);
+  }
+});
+
+
+export const fetchDictionaryItemById = createAsyncThunk<
+  { key: string; item: DictionaryItem },
+  { key: string; id: string },
+  { rejectValue: string }
+>("dictionaries/fetchItemById", async ({ key, id }, thunkAPI) => {
+  try {
+    const response = await instance.get(`${key}/${id}`);
+    return { key, item: response.data };
   } catch (error) {
     return thunkAPI.rejectWithValue((error as Error).message);
   }

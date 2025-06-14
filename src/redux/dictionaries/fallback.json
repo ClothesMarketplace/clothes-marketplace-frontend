@@ -1,15 +1,14 @@
 {
   "brands": [
-    { "id": "974f8947-a110-434a-96b6-171b0a5d9e28", "name": "Levi's" },
-    { "id": "0DB0AF0E-F3E4-481D-AA9B-E6BECC448B52", "name": "Nike" },
-    { "id": "0A28845F-BACD-4893-9D13-C2754B5E1DD6", "name": "Adidas" },
-    { "id": "DADC0B92-786A-4A12-93BA-7B886530339C", "name": "Puma" },
-    { "id": "99FBF381-B297-4B60-BE33-41CE92D61175", "name": "Reebok" },
-    { "id": "90050545-B51A-4E69-88B8-4B4FCFBAE671", "name": "Gucci" },
-    { "id": "E6AF6412-F80E-42ED-A11A-9C0C15D2549B", "name": "Prada" },
-    { "id": "B81D50FE-5A60-4836-B99D-861536F95C3B", "name": "Louis Vuitton" },
-    { "id": "2F47893F-C7A7-4E45-B873-B140CA66661A", "name": "Zara" },
-    { "id": "71A1034A-0B33-49F2-95ED-D55AA17F910B", "name": "H&M" },
+    { "id":"0DB0AF0E-F3E4-481D-AA9B-E6BECC448B52","name": "Nike" },
+    { "id":"0A28845F-BACD-4893-9D13-C2754B5E1DD6","name": "Adidas" },
+    { "id":"DADC0B92-786A-4A12-93BA-7B886530339C","name": "Puma" },
+    { "id":"99FBF381-B297-4B60-BE33-41CE92D61175","name": "Reebok" },
+    { "id":"90050545-B51A-4E69-88B8-4B4FCFBAE671","name": "Gucci" },
+    { "id":"E6AF6412-F80E-42ED-A11A-9C0C15D2549B","name": "Prada" },
+    { "id":"B81D50FE-5A60-4836-B99D-861536F95C3B","name": "Louis Vuitton" },
+    { "id":"2F47893F-C7A7-4E45-B873-B140CA66661A","name": "Zara" },
+    { "id":"71A1034A-0B33-49F2-95ED-D55AA17F910B","name": "H&M" },
     { "id": "974F8947-A110-434A-96B6-171B0A5D9E28", "name": "Levi's" }
   ],
   "colors": [
@@ -28,22 +27,27 @@
    { "id":"29237B66-57D0-4BE9-9BE5-8724C3010AD6", "name": "New" },
    { "id":"DC094E7D-2187-4FD5-BFC8-8E6BA43D23AD", "name": "Like New" },
    { "id":"65066B06-B1C6-4CDC-93B2-C48EC85B728A", "name": "Used" },
-   { "id":"32971903-985C-488F-85FA-8EEC94EC4E33", "name": "Needs Repair" }],
+   { "id":"32971903-985C-488F-85FA-8EEC94EC4E33", "name": "Needs Repair" }
+  ],
   "productSizes": [
-   { "id":"D6C3E61D-AF7E-48B1-B8C2-1C86DED103DC", "name": "Small" },
-   { "id":"D6C3E61D-AF7E-48B1-B8C2-1C86DED103DC", "name": "Small" },
-   { "id":"32455FC0-E34C-45B4-B0CB-ED608488A831", "name": "Medium" },
-   { "id":"B7D39B1D-CE5F-4A12-8679-A5790828C421", "name": "Large" },
-   { "id":"2D90D334-F644-4014-B845-1DB20C0A284F", "name": "X-Large" },
+  { "id":"D6C3E61D-AF7E-48B1-B8C2-1C86DED103DC", "name": "Small" },
+  { "id":"D6C3E61D-AF7E-48B1-B8C2-1C86DED103DC", "name": "Small" },
+  { "id":"32455FC0-E34C-45B4-B0CB-ED608488A831", "name": "Medium" },
+  { "id":"B7D39B1D-CE5F-4A12-8679-A5790828C421", "name": "Large" },
+  { "id":"2D90D334-F644-4014-B845-1DB20C0A284F", "name": "X-Large" },
   { "id":"4B094BB1-54AE-418E-92F2-505DA57D1E17", "name": "XX-Large" },
-  { "id":"EA14AD4F-F7F6-4770-8A1E-6E5F69B3CB53", "name": "One Size" }],
-  "categories": [{ "id":"5E57F154-6F54-494D-B97A-FF25843EB849", "name": "Clothes" },
+  { "id":"EA14AD4F-F7F6-4770-8A1E-6E5F69B3CB53", "name": "One Size" }
+],
+  "categories": [
+  { "id":"5E57F154-6F54-494D-B97A-FF25843EB849", "name": "Clothes" },
   { "id":"86F9211A-F56C-448D-A4BF-7E8A1B395231", "name": "Shoes" },
   { "id":"68C5D057-0902-4D19-8304-7F69510417AA", "name": "Bags" },
-  { "id":"552A7F36-7126-45BC-A4D8-0B65B76700A7", "name": "Accessories" }],
+  { "id":"552A7F36-7126-45BC-A4D8-0B65B76700A7", "name": "Accessories" }
+],
   "forWhom": [
   { "id":"9196E79E-3537-4504-8DC2-16644606F087", "name": "Men" },
   { "id":"4DD38FE2-FA02-45D8-8864-350D458A613D", "name": "Women" },
   { "id":"E54A839F-E472-4543-8F41-4DE52747F414", "name": "Kids" },
-  { "id":"1C6B6970-3947-4856-8352-06856DD20D81", "name": "Unisex" }]
+  { "id":"1C6B6970-3947-4856-8352-06856DD20D81", "name": "Unisex" }
+]
 }

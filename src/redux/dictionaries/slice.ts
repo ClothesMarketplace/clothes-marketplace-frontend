@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { DictionariesState } from "./types";
-import { fetchDictionaries } from "./operations";
+import { DictionariesState, DictionaryItem } from "./types";
+import { fetchDictionaries, fetchDictionaryItemById } from "./operations";
 
 const initialState: DictionariesState = {
   brands: [],
@@ -40,8 +40,28 @@ const dictionariesSlice = createSlice({
       .addCase(fetchDictionaries.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string;
+      }).addCase(fetchDictionaryItemById.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchDictionaryItemById.fulfilled, (state, action) => {
+        const { key, item } = action.payload;
+        const targetArray = state[
+          key as keyof DictionariesState
+        ] as DictionaryItem[];
+
+        if (!targetArray.some((i) => i.id === item.id)) {
+          targetArray.push(item);
+        }
+        state.loading = false;
+      }).addCase(fetchDictionaryItemById.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
       });
   },
 });
 
 export const dictionariesReducer = dictionariesSlice.reducer;
+
+
+

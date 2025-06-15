@@ -24,6 +24,7 @@ export interface ProductsResponse {
 }
 
 export interface ProductsState {
+  currentProduct: any;
   products: Product[];
   selectedItem: Product | null;
   isLoading: boolean;

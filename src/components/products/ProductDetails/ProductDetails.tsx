@@ -1,18 +1,21 @@
 import { Link } from "react-router-dom";
+import { MutableRefObject, useEffect } from "react";
 import { Product } from "../../../redux/products/types";
-import { MutableRefObject } from "react";
+import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import css from "./ProductDetails.module.css";
 import { images as myImages } from "../../../assets/images/images";
 import ButtonFavorite from "../../buttons/ButtonFavorite/ButtonFavorite";
 import ProductButtonsGroup from "../ProductButtonsGroup/ProductButtonsGroup";
-import { useAppSelector } from "../../../redux/store";
+
 import {
   selectBrands,
   selectColors,
   selectProductConditions,
   selectProductSizes,
 } from "../../../redux/dictionaries/selectors";
-// import Loader from "../../commonComponents/Loader/Loader";
+import { DictionaryItem } from "../../../redux/dictionaries/types";
+import { dictionaryAutoLoader } from "../../../redux/dictionaries/operations";
+
 
 interface ProductProps {
   product: Product;
@@ -25,11 +28,11 @@ const ProductDetails: React.FC<ProductProps> = ({ product, backLink }) => {
     name,
     images,
     dollarPrice,
-    urlMainImage,
+    // urlMainImage,
     description,
     brandId,
-    categoryId,
-    forWhomId,
+    // categoryId,
+    // forWhomId,
     colorId,
     productSizeId,
     productConditionId,
@@ -45,20 +48,25 @@ const ProductDetails: React.FC<ProductProps> = ({ product, backLink }) => {
   const sizes = useAppSelector(selectProductSizes);
   const conditions = useAppSelector(selectProductConditions);
 
-  // if (
-  //   brands.length === 0 ||
-  //   colors.length === 0 ||
-  //   sizes.length === 0 ||
-  //   conditions.length === 0
-  // ) {
-  //   return <Loader />;
-  // }
+  const getNameById = (arr: DictionaryItem[], id: string) => {
+    if (!id) return "—";
+    const normalizedId = id.trim().toLowerCase();
+    const item = arr.find((item) => item.id.toLowerCase() === normalizedId);
+    return item?.name ?? "—";
+  };
 
-  const size = sizes.find((s) => s.id === productSizeId)?.name ?? "—";
-  const condition =
-    conditions.find((c) => c.id === productConditionId)?.name ?? "—";
-  const brand = brands.find((b) => b.id === brandId)?.name ?? "—";
-  const color = colors.find((c) => c.id === colorId)?.name ?? "—";
+  // console.log("Looking for id:", colorId);
+  // console.log(
+  //   "Available colors:",
+  //   colors.map((c) => c.id)
+  // );
+
+  const size = getNameById(sizes, productSizeId);
+  const condition = getNameById(conditions, productConditionId);
+  const brand = getNameById(brands, brandId);
+  const color = getNameById(colors, colorId);
+
+  // console.log(color);
 
   const characteristics: Record<string, string> = {
     Розмір: size,
@@ -69,6 +77,32 @@ const ProductDetails: React.FC<ProductProps> = ({ product, backLink }) => {
     Зацікавлений: String(interested ?? 0),
     Пропозицій: String(offers ?? 0),
   };
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (product) {
+      dispatch(dictionaryAutoLoader(product));
+    }
+  }, [dispatch, product]);
+
+  // console.log("🔁 Checking dictionary keys...");
+  // Object.entries(dictionaryKeys).forEach(([key, id]) => {
+  //   console.log("🔍", key, id);
+
+  //   if (!id) return;
+  //   const exists = state[key as keyof typeof state]?.some(
+  //     (item) => item.id === id
+  //   );
+  //   if (!exists) {
+  //     console.log("📡 Fetching:", key, id);
+  //     dispatch(fetchDictionaryItemById({ key, id }))
+  //       .unwrap()
+  //       .then(() => console.log("✅ Loaded", key, id))
+  //       .catch((err) => console.warn("❌ Failed to load", key, id, err));
+  //   }
+  // });
+  
 
   return (
     <div>
